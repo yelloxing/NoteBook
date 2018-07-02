@@ -27,7 +27,11 @@
         };
         // 初始化
         $$(function () {
-            loadPage(/#\/([^#]{1,})$/.exec(window.location.href)[1]);
+            try {
+                loadPage(/#\/([^#]{1,})$/.exec(window.location.href)[1]);
+            } catch (e) {
+                loadPage('api');
+            }
         });
     </script>
 </head>
