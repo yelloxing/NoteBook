@@ -1,0 +1,39 @@
+body>header {
+    line-height: .5rem;
+    background-color: #43515a;
+    border-color: #43515a;
+    color: #fff;
+    user-select: none;
+}
+
+body>header>ul {
+    width: 10rem;
+    margin: auto;
+}
+
+body>header>ul>li {
+    display: inline-block;
+    padding: 0 15px;
+    font-size: .12rem;
+    cursor: pointer;
+}
+
+body>header>ul>li:first-child {
+    font-size: .2rem;
+}
+
+body>header>ul>li>input {
+    height: .34rem;
+    padding: 6px 12px;
+    font-size: .14rem;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+    outline: none;
+}
+
+body>iframe {
+    width: 100%;
+    display: block;
+    height: calc(100vh - .5rem);
+}

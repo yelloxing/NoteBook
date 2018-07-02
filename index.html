@@ -17,11 +17,33 @@
     <link rel="apple-touch-icon" sizes="120x120" href="120icon.png" />
     <link rel="apple-touch-icon" sizes="144x144" href="144icon.png" />
     <link rel="stylesheet" href="easycss-1.0.0.css">
+    <link rel="stylesheet" href="style.css">
     <script src="luna-1.0.0.js"></script>
+    <script>
+        // 切换导航
+        function loadPage(type) {
+            window.history.pushState(null, null, "#/" + type);
+            $$('#pageTarget').attr('src', "./" + String(type).toUpperCase() + "/index.html");
+        };
+        // 初始化
+        $$(function () {
+            loadPage(/#\/([^#]{1,})$/.exec(window.location.href)[1]);
+        });
+    </script>
 </head>
 
 <body>
-
+    <header>
+        <ul>
+            <li>小笔记</li>
+            <li onclick='loadPage("api")'>API查询</li>
+            <li onclick='loadPage("notebook")'>文档笔记</li>
+            <li>
+                <input type="text" placeholder="search...">
+            </li>
+        </ul>
+    </header>
+    <iframe frameborder="0" id="pageTarget" frameborder="no" marginwidth="0" marginheight="0"></iframe>
 </body>
 
 </html>
