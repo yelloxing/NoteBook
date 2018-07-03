@@ -1,3 +1,6 @@
+body{
+    background: #f6f6f6
+}
 body>header {
     line-height: .5rem;
     background-color: #43515a;
