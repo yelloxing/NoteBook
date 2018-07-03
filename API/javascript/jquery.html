@@ -53,6 +53,13 @@
             color: #fff;
         }
 
+        table>tbody>tr>.info {
+            border: none;
+            background-color: #f6f6f6;
+            color: #435159;
+            font-size: .12rem;
+        }
+
         body>footer {
             width: 10rem;
             margin: auto;
@@ -81,7 +88,6 @@
                 <th>用例</th>
                 <th>例子描述</th>
             </tr>
-
             <tr>
                 <td>
                     append()
@@ -93,7 +99,6 @@
                     在body元素的内部结尾插入"&lt;a&gt;小笔记&lt;a/&gt;"
                 </td>
             </tr>
-
             <tr>
                 <td>
                     prepend()
@@ -105,7 +110,6 @@
                     在body元素的内部开头插入"&lt;a&gt;小笔记&lt;a/&gt;"
                 </td>
             </tr>
-
             <tr>
                 <td>
                     after()
@@ -117,7 +121,6 @@
                     在div元素后面插入"&lt;a&gt;小笔记&lt;a/&gt;"
                 </td>
             </tr>
-
             <tr>
                 <td>
                     before()
@@ -129,7 +132,6 @@
                     在div元素前面插入"&lt;a&gt;小笔记&lt;a/&gt;"
                 </td>
             </tr>
-
             <tr>
                 <td>
                     remove()
@@ -141,7 +143,6 @@
                     删除class包含target的div元素（及其子元素），参数是过滤作用，可选
                 </td>
             </tr>
-
             <tr>
                 <td>
                     empty()
@@ -153,7 +154,26 @@
                     删除div元素内部的全部内容
                 </td>
             </tr>
-
+            <tr>
+                <td>
+                    replaceWith()
+                </td>
+                <td>
+                    $('div').replaceWith("&lt;a&gt;小笔记&lt;a/&gt;");
+                </td>
+                <td>
+                    把div标签[包括内部内容]替换成&lt;a&gt;小笔记&lt;a/&gt;
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <tbody>
+            <tr>
+                <th>语法</th>
+                <th>用例</th>
+                <th>例子描述</th>
+            </tr>
             <tr>
                 <td>
                     width()
@@ -165,7 +185,6 @@
                     先获取div宽，再设置div宽为100px(不包括内边距、边框或外边距）
                 </td>
             </tr>
-
             <tr>
                 <td>
                     height()
@@ -177,7 +196,6 @@
                     先获取div高，再设置div高为100px(不包括内边距、边框或外边距）
                 </td>
             </tr>
-
             <tr>
                 <td>
                     innerWidth()
@@ -189,7 +207,6 @@
                     获取p标签的宽（包括内边距）
                 </td>
             </tr>
-
             <tr>
                 <td>
                     innerHeight()
@@ -201,7 +218,6 @@
                     获取p标签的高（包括内边距）
                 </td>
             </tr>
-
             <tr>
                 <td>
                     outerWidth()
@@ -213,7 +229,6 @@
                     获取p标签的宽（包括内边距和边框）
                 </td>
             </tr>
-
             <tr>
                 <td>
                     outerHeight()
@@ -225,7 +240,15 @@
                     获取p标签的高（包括内边距和边框）
                 </td>
             </tr>
-
+        </tbody>
+    </table>
+    <table>
+        <tbody>
+            <tr>
+                <th>语法</th>
+                <th>用例</th>
+                <th>例子描述</th>
+            </tr>
             <tr>
                 <td>
                     addClass()
@@ -237,7 +260,6 @@
                     给em标签添加一个名称是warn的class
                 </td>
             </tr>
-
             <tr>
                 <td>
                     removeClass()
@@ -249,7 +271,6 @@
                     删除em标签一个名称是warn的class
                 </td>
             </tr>
-
             <tr>
                 <td>
                     toggleClass()
@@ -261,7 +282,6 @@
                     如果em标签有名称为warn的class就删除，没有添加
                 </td>
             </tr>
-
             <tr>
                 <td>
                     hasClass()
@@ -273,7 +293,364 @@
                     如果em标签有名称为warn的class就返回true，没有返回false
                 </td>
             </tr>
-
+        </tbody>
+    </table>
+    <table>
+        <tbody>
+            <tr>
+                <th>语法</th>
+                <th>用例</th>
+                <th>例子描述</th>
+            </tr>
+            <tr>
+                <td>
+                    parent()
+                </td>
+                <td>
+                    $("span").parent();
+                </td>
+                <td>
+                    查找span标签的父元素，可以带参数过滤
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    parents()
+                </td>
+                <td>
+                    $("span").parents();
+                </td>
+                <td>
+                    查找span标签的祖先元素，可以带参数过滤
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    parentsUntil()
+                </td>
+                <td>
+                    $("span").parentsUntil("div");
+                </td>
+                <td>
+                    返回span开始到div为止的祖先元素
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    children()
+                </td>
+                <td>
+                    $("i").children();
+                </td>
+                <td>
+                    返回i元素的所有直接子元素，可以带参数过滤
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    find()
+                </td>
+                <td>
+                    $("i").find();
+                </td>
+                <td>
+                    返回i元素的所有后代元素，可以带参数过滤
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    siblings()
+                </td>
+                <td>
+                    $('nav').siblings();
+                </td>
+                <td>
+                    返回nav元素的所有同胞元素，可以带参数过滤
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    next()
+                </td>
+                <td>
+                    $('nav').next();
+                </td>
+                <td>
+                    返回nav元素的下一个同胞元素，可以带参数过滤
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    nextAll()
+                </td>
+                <td>
+                    $('nav').nextAll();
+                </td>
+                <td>
+                    返回nav元素的之后的全部同胞元素，可以带参数过滤
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    nextUntil()
+                </td>
+                <td>
+                    $("h2").nextUntil("h6");
+                </td>
+                <td>
+                    返回介于 &lt;h2&gt;与&lt;h6&gt;元素之间的所有同胞元素[方向向下]
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    prev()
+                </td>
+                <td>
+                    $('nav').prev();
+                </td>
+                <td>
+                    返回nav元素的前一个同胞元素，可以带参数过滤
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    prevAll()
+                </td>
+                <td>
+                    $('nav').prevAll();
+                </td>
+                <td>
+                    返回nav元素的之前的全部同胞元素，可以带参数过滤
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    prevUntil()
+                </td>
+                <td>
+                    $("h2").prevUntil("h6");
+                </td>
+                <td>
+                    返回介于 &lt;h2&gt;与&lt;h6&gt;元素之间的所有同胞元素[方向向上]
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <tbody>
+            <tr>
+                <th>语法</th>
+                <th>用例</th>
+                <th>例子描述</th>
+            </tr>
+            <tr>
+                <td>
+                    first()
+                </td>
+                <td>
+                    $('div').first();
+                </td>
+                <td>
+                    返回选中的div元素中的第一个
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    last()
+                </td>
+                <td>
+                    $('div').last();
+                </td>
+                <td>
+                    返回选中的div元素中的最后一个
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    eq()
+                </td>
+                <td>
+                    $('div').eq(3);
+                </td>
+                <td>
+                    返回选中的div元素中的第四个
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    filter()
+                </td>
+                <td>
+                    $('p').filter(".target");
+                </td>
+                <td>
+                    返回带有类名"target"的所有p元素
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    not()
+                </td>
+                <td>
+                    $("p").not(".target");
+                </td>
+                <td>
+                    返回不带有类名"target"的所有p元素
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <tbody>
+            <tr>
+                <th>语法</th>
+                <th>用例</th>
+                <th>例子描述</th>
+            </tr>
+            <tr>
+                <td>
+                    text()
+                </td>
+                <td>
+                    $('div').text();
+                </td>
+                <td>
+                    返回div元素里面的文本内容，带值是设置
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    html()
+                </td>
+                <td>
+                    $('div').html();
+                </td>
+                <td>
+                    返回div元素里面的html内容，带值是设置
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    val()
+                </td>
+                <td>
+                    $('input').val();
+                </td>
+                <td>
+                    返回input的值，带值是设置
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    attr()
+                </td>
+                <td>
+                    $('input').attr('name');
+                </td>
+                <td>
+                    返回input的name属性的值，有第二个参数是设置
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" class='info'>
+                    上面方法都拥有回调函数，回调函数有两个参数：被选元素下标，以及原始值，你可以以函数新值返回您希望使用的字符串[例如：$("#test1").text(function(i,origText){return '新值';});]
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <tbody>
+            <tr>
+                <th>语法</th>
+                <th>用例</th>
+                <th>例子描述</th>
+            </tr>
+            <tr>
+                <td>
+                    css("key");
+                </td>
+                <td>
+                    $('header').css('color');
+                </td>
+                <td>
+                    返回header样式的color
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    css("key","value");
+                </td>
+                <td>
+                    $('header').css('color','blue');
+                </td>
+                <td>
+                    设置header标签样式的color为blue
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    css({"key":"value","key":"value",...});
+                </td>
+                <td>
+                    $('header').css({'color':'blue','fontSize':'14px'});
+                </td>
+                <td>
+                    设置header的color和font-size
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <tbody>
+            <tr>
+                <th>语法</th>
+                <th>用例</th>
+                <th>例子描述</th>
+            </tr>
+            <tr>
+                <td>
+                    bind();
+                </td>
+                <td>
+                    $("button").bind("click",function(){});
+                </td>
+                <td>
+                    给按钮绑定一个点击事件
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    on();
+                </td>
+                <td>
+                    $('div').on('click','button',function(){});
+                </td>
+                <td>
+                    给div元素里面的button绑定一个点击事件，此刻里面的button可以不存在
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    trigger();
+                </td>
+                <td>
+                    $("button").trigger("click");
+                </td>
+                <td>
+                    触发按钮的点击事件
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    unbind();
+                </td>
+                <td>
+                    $("button").unbind("click");
+                </td>
+                <td>
+                    取消按钮绑定的点击事件
+                </td>
+            </tr>
         </tbody>
     </table>
     <footer>
