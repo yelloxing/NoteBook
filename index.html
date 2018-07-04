@@ -23,7 +23,7 @@
         // 切换导航
         function loadPage(type) {
             window.history.pushState(null, null, "#/" + type);
-            $$('#pageTarget').attr('src', "./" + String(type).toUpperCase() + "/index.html");
+            $$('#pageTarget').attr('src', "./" + type + "/index.html");
         };
         // 初始化
         $$(function () {
