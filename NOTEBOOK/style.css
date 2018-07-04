@@ -1,0 +1,40 @@
+body>footer {
+    width: 10rem;
+    margin: auto;
+    line-height: 1rem;
+    font-size: .14rem;
+    color: #43515a;
+}
+
+body>section {
+    width: 10rem;
+    margin: auto;
+    margin-top: .1rem;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+body>section>.title {
+    font-size: .22rem;
+    line-height: 2em;
+}
+
+body>section>.code {
+    background-color: #f6f6f6;
+    margin: .1rem 0;
+    padding: .1rem;
+    color: #435159;
+}
+
+body>section>.block {
+    text-indent: 2em;
+    line-height: 1.8em;
+}
+
+body>section>.warn {
+    line-height: 2em;
+    color: #435159;
+    font-size: .12rem;
+    text-indent: 2em;
+}
