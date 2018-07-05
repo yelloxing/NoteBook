@@ -10,7 +10,7 @@ body>header {
     color: #fff;
     user-select: none;
     position: fixed;
-    width: 100vw;
+    width: 100%;
     top: 0;
     box-shadow: 0px 4px 5px 0px #f6f6f6;
 }
