@@ -20,6 +20,12 @@ body>section>.title {
     line-height: 2em;
 }
 
+body>section>.name {
+    font-weight: 600;
+    color: #607D8B;
+    line-height: 2em;
+}
+
 body>section>.code {
     background-color: #f6f6f6;
     margin: .1rem 0;

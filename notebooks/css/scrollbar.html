@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset='utf-8'>
+    <title>离线小助手</title>
+    <link rel="icon" href="../../favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,maximum-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="Keywords" content="离线小助手" />
+    <meta name="description" content="离线小助手" />
+    <meta name="author" content="心叶" />
+    <link rel="apple-touch-icon" sizes="52x52" href="52icon.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="72icon.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="120icon.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="144icon.png" />
+    <link rel="stylesheet" href="../../easycss-1.0.0.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li onclick='window.location.href="https://github.com/yelloxing/yelloxing.github.io"'>离线小助手</li>
+            <li onclick='window.location.href="../../index.html#/apis"'>API查询</li>
+            <li onclick='window.location.href="../../index.html#/notebooks"'>文档笔记</li>
+            <li onclick='window.location.href="../../index.html#/tools"'>小工具</li>
+            <li onclick='window.location.href="../../index.html#/subjects"'>专题学习</li>
+            <li onclick='window.location.href="../../index.html#/mores"'>更多</li>
+            <li>
+                <input type="text" placeholder="search...">
+            </li>
+        </ul>
+    </header>
+    <section>
+        <div class="title">webkit系列浏览器</div>
+        <div class="name">::-webkit-scrollbar</div>
+        <div class="block">
+            滚动条整体部分
+        </div>
+        <div class="name">::-webkit-scrollbar-track</div>
+        <div class="block">
+            滚动条的轨道（里面装有Thumb）
+        </div>
+        <div class="name">::-webkit-scrollbar-thumb</div>
+        <div class="block">
+            滚动条里面的小方块，能向上向下移动（或往左往右移动，取决于是垂直滚动条还是水平滚动条）
+        </div>
+        <div class="name">::-webkit-scrollbar-button</div>
+        <div class="block">
+            滚动条的轨道的两端按钮，允许通过点击微调小方块的位置
+        </div>
+        <div class="name">::-webkit-scrollbar-corner</div>
+        <div class="block">
+            边角，即两个滚动条的交汇处
+        </div>
+        <div class="name">::-webkit-resizer</div>
+        <div class="block">
+            两个滚动条的交汇处上用于通过拖动调整元素大小的小控件，比如你使用textarea标签的时候出现的那个用来拖拽大小的东西
+        </div>
+        <hr/>
+        <div class="name">:horizontal</div>
+        <div class="block">
+            用来标记是水平方向上的，比如::-webkit-scrollbar-track:horizontal，选中了水平滚动条的轨道
+        </div>
+        <div class="name">:vertical</div>
+        <div class="block">
+            用来标记是垂直方向上的
+        </div>
+        <div class="name">:decrement</div>
+        <div class="block">
+            用来标记递减的按钮或轨道碎片，比如::-webkit-scrollbar-button:decrement，选中的是点击递减的按钮
+        </div>
+        <div class="name">:increment</div>
+        <div class="block">
+            用来标记递增的按钮或轨道碎片
+        </div>
+        <div class="name">:start</div>
+        <div class="block">
+            用来标记位于滑块左边或上边的按钮或轨道碎片，比如::-webkit-scrollbar-button:decrement:start，选中的是点击递减且位于滑块左边和上边的按钮
+        </div>
+        <div class="name">:end</div>
+        <div class="block">
+            用来标记位于滑块右边或下边的按钮或轨道碎片
+        </div>
+    </section>
+    <section>
+        <div class="title">IE系列浏览器</div>
+        <div class="block">
+            IE浏览器对滚动条修改的能力有限，只可以改改颜色，下面给出一个例子：
+        </div>
+        <pre class="code">
+* {
+
+    scrollbar-arrow-color: #f00;/*三角箭头的颜色*/
+
+    scrollbar-face-color: #0f0;/*立体滚动条的颜色*/
+
+    scrollbar-3dlight-color: #00f;/*立体滚动条亮边的颜色*/
+
+    scrollbar-highlight-colofr: #ff0;/*滚动条空白部分的颜色*/
+
+    scrollbar-shadow-color: #0ff;/*立体滚动条阴影的颜色*/
+
+    scrollbar-darkshadow-color: #f0f;/*立体滚动条强阴影的颜色*/
+
+    scrollbar-track-color: #fff;/*立体滚动条背景颜色*/
+
+    scrollbar-base-color: #000;/*滚动条的基本颜色*/
+
+}</pre>
+    </section>
+    <footer>
+        Copyright&copy;离线小助手 2018 心叶
+    </footer>
+</body>
+
+</html>
