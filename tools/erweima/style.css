@@ -1,0 +1,33 @@
+body>footer {
+    width: 10rem;
+    margin: auto;
+    line-height: 1rem;
+    font-size: .14rem;
+    color: #43515a;
+}
+
+body>section {
+    font-size: 0;
+    width: 10rem;
+    margin: auto;
+    background-color: #fff;
+    margin-top: .1rem;
+    padding: .3rem 0;
+}
+
+body>section>canvas,
+body>section>ul {
+    display: inline-block;
+    height: 5rem;
+}
+
+body>section>canvas {
+    width: 5rem;
+    background-image: url('../../image/masaike.jpg');
+    background-position: center center;
+}
+
+body>section>ul {
+    width: 2.5rem;
+    font-size: .16rem;
+}
