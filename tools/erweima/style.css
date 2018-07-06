@@ -12,22 +12,57 @@ body>section {
     margin: auto;
     background-color: #fff;
     margin-top: .1rem;
-    padding: .3rem 0;
+    padding: .3rem;
 }
 
-body>section>canvas,
+body>section>div,
 body>section>ul {
     display: inline-block;
-    height: 5rem;
+    height: 3rem;
+    vertical-align: top;
 }
 
-body>section>canvas {
-    width: 5rem;
+body>section>div {
+    width: 3rem;
     background-image: url('../../image/masaike.jpg');
     background-position: center center;
 }
 
 body>section>ul {
-    width: 2.5rem;
+    width: 6.4rem;
     font-size: .16rem;
+    padding: .2rem;
+}
+
+body>section>ul>li {
+    line-height: .46rem;
+    text-align: center;
+}
+
+body>section>ul>li>label {
+    width: 4em;
+    display: inline-block;
+    text-align: right;
+}
+
+body>section>ul>li>label+input {
+    padding: 6px;
+    font-size: .14rem;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+    outline: none;
+    width: 3rem;
+}
+
+body>section>ul>li>input[type='button'] {
+    width: 1rem;
+    line-height: .26rem;
+    margin: 0 .1rem;
+    border-radius: .05rem;
+    cursor: pointer;
+    background-color: #435159;
+    color: #fff;
+    outline: none;
+    border: none;
 }

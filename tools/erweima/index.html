@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="../../easycss-1.0.0.css">
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="./style.css">
-    <script src="../../luna-1.0.0.js"></script>
-    <script src="./qrCode.js"></script>
+    <script src="../../lib/luna-1.0.0.js"></script>
+    <script src="../../lib/qrcode.js"></script>
     <script src="./script.js"></script>
 </head>
 
@@ -40,12 +40,30 @@
         </ul>
     </header>
     <section>
+        <div id="qrcode"></div>
         <ul>
-            <li></li>
-        </ul>
-        <canvas class="erweima"></canvas>
-        <ul>
-            <li></li>
+            <li>
+                <label for="url">
+                    地址：
+                </label>
+                <input id="url" type="text" value="https://yelloxing.github.io" />
+            </li>
+            <li>
+                <label for="colorDark">
+                    前景色：
+                </label>
+                <input id='colorDark' type="text" value="#67d5b8" />
+            </li>
+            <li>
+                <label for="colorLight">
+                    背景色：
+                </label>
+                <input id="colorLight" type="text" value="#ffffff" />
+            </li>
+            <li>
+                <input type="button" value="生成" id="create">
+                <input type="button" value="下载" id="download">
+            </li>
         </ul>
     </section>
     <footer>
