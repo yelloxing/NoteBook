@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset='utf-8'>
+    <title>离线小助手</title>
+    <link rel="icon" href="favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,maximum-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="Keywords" content="离线小助手" />
+    <meta name="description" content="离线小助手" />
+    <meta name="author" content="心叶" />
+    <link rel="apple-touch-icon" sizes="52x52" href="52icon.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="72icon.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="120icon.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="144icon.png" />
+    <link rel="stylesheet" href="../easycss-1.0.0.css">
+    <style>
+        body>footer {
+            width: 10rem;
+            margin: auto;
+            line-height: 1rem;
+            font-size: .14rem;
+            color: #43515a;
+        }
+
+        body>section {
+            width: 10rem;
+            margin: auto;
+            background-color: #fff;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+
+        body>section>span {
+            padding-bottom: 9px;
+            border-bottom: 1px solid #eee;
+            display: block;
+            font-weight: 800;
+        }
+
+        body>section>ul>li {
+            margin-top: 10px;
+        }
+
+        body>section>ul>li>.name {
+            color: #43515a;
+            font-size: .18rem;
+            line-height: .2rem;
+            padding-top: .16rem;
+        }
+
+        body>section>ul>li>.info {
+            color: #435159;
+            font-weight: 400;
+            font-size: .14rem;
+            line-height: .4rem;
+        }
+
+        body>section>ul>li>.btn>* {
+            line-height: 1.6em;
+            display: inline-block;
+            background-position: left center;
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+            padding-left: 1.6em;
+            font-size: .14rem;
+            cursor: pointer;
+            color: #53c1ec;
+        }
+
+        body>section>ul>li>.btn>*:not(:first-child) {
+            margin-left: .1rem;
+        }
+
+        body>section>ul>li>.btn>.how {
+            background-image: url('../image/info.png');
+        }
+
+        body>section>ul>li>.btn>.download {
+            background-image: url('../image/download.png');
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <span>AngularJS指令</span>
+        <ul>
+            <li>
+                <div class="name">
+                    ui-page
+                </div>
+                <div class="info">
+                    碎片页切换指令，用来控制页面中一个固定区域切换显示不同的内容，可以任意嵌套使用。
+                </div>
+                <div class="btn">
+                    <a class="how" href="./ui-page/use-method.html" target="_blank">使用说明</a>
+                    <a class="download" download="ui-page.js" href="./ui-page/script.js">下载文件</a>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <footer>
+        Copyright&copy;离线小助手 2018 心叶
+    </footer>
+</body>
+
+</html>
