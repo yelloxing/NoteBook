@@ -51,3 +51,13 @@ body>iframe {
     width: 0;
     height: 0;
 }
+
+body>em.position {
+    width: 10rem;
+    margin: auto;
+    display: block;
+    line-height: 2em;
+    font-size: .14rem;
+    font-style: normal;
+    color: #2196F3;
+}
