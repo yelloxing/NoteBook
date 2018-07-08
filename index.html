@@ -24,6 +24,7 @@
         function loadPage(type) {
             window.history.pushState(null, null, "#/" + type);
             $$('#pageTarget').attr('src', "./" + type + "/index.html");
+            $$('body>header>ul>li').removeClass('active').filter('[onclick=\'loadPage("' + type + '")\']').addClass('active');
         };
         // 初始化
         $$(function () {
@@ -34,6 +35,24 @@
             }
         });
     </script>
+    <style>
+        body>header>ul>li {
+            position: relative;
+        }
+
+        body>header>ul>li.active::after {
+            display: inline-block;
+            width: .1rem;
+            height: .1rem;
+            transform: rotate(45deg);
+            background-color: #f6f6f6;
+            position: absolute;
+            content: " ";
+            top: .45rem;
+            left: 50%;
+            margin-left: -.06rem;
+        }
+    </style>
 </head>
 
 <body>
