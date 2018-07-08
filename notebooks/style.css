@@ -45,3 +45,29 @@ body>section>.warn {
     font-size: .12rem;
     text-indent: 2em;
 }
+
+body .btn {
+    width: 10rem;
+    margin: auto;
+    line-height: 2em;
+}
+
+body .btn>* {
+    line-height: 1.6em;
+    display: inline-block;
+    background-position: left center;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    padding-left: 1.6em;
+    font-size: .14rem;
+    cursor: pointer;
+    color: #53c1ec;
+}
+
+body .btn>*:not(:first-child) {
+    margin-left: .1rem;
+}
+
+body .btn>.download {
+    background-image: url('../image/download.png');
+}
