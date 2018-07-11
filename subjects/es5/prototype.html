@@ -41,7 +41,60 @@
         <div class="title">基本概论和关系</div>
         <img src="../../image/prototype.png" alt="继承与原型链关系图">
         <div class="block">
+            从关系图中可以看出来，ECMAScript中创建一个对象是通过new构造函数实现的，而本质上来说这个对象其实是以构造函数的属性prototype指向的对象为基本模板的，因此新对象的__proto__属性表明了自己来源于谁。
+        </div>
+        <div class="name">
+            prototype
+        </div>
+        <div class="block">
+            该属性用来指向创建一个对象的基本模板，默认指向new构造函数，也可以修改，或者通过改属性为新对象添加属性。
+        </div>
+        <div class="warn">
+            需要注意的是，该属性只有函数才有。
+        </div>
+        <pre class="code">
+//构造函数
+function Clazz(name) {
+    this.name = name;
+}
 
+//创建对象
+var clazz = new Clazz('心叶');
+
+//通过prototype给对象添加方法
+Clazz.prototype.getName = function () {
+    alert(this.name);
+};
+
+clazz.getName();</pre>
+        <div class="name">
+            __proto__
+        </div>
+        <div class="block">
+            这个是对象上的属性，比较有意思，因为不是标准中规定的，使用的时候要小心。
+        </div>
+        <div class="block">
+            该属性的意思指创建该对象的构造函数的prototype，因此你可以通过对象的该属性修改原型。
+        </div>
+        <pre class="code">
+function Clazz(name) {
+    this.name = name;
+}
+
+var clazz = new Clazz('心叶');
+var clazz2 = new Clazz('美羽');
+
+//通过__proto__给原型添加方法，这样创建的对象也会有该方法
+clazz2.__proto__.getName = function () {
+    alert(this.name);
+};
+
+clazz.getName();</pre>
+    </section>
+    <section>
+        <div class="title">继承</div>
+        <div class="block">
+            借助prototype或__proto__可以实现继承效果，下面是一个使用prototype的例子。
         </div>
         <pre class="code">
 // 动物
@@ -78,8 +131,10 @@ cat.getAge();
 
 //建立动物对象
 var animal = new Animal('动物');
-animal.getInfo();
-// animal.getAge();//animal.getAge is not a function</pre>
+animal.getInfo();</pre>
+        <div class="block">
+
+        </div>
     </section>
     <footer>
         Copyright&copy;离线小助手 2018 心叶
