@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="./style.css">
     <script src="../../lib/luna-1.0.0.js"></script>
-    <script src="../../lib/qrcode.js"></script>
     <script src="./script.js"></script>
 </head>
 
@@ -41,7 +40,9 @@
     </header>
     <em class='position'>当前位置：小工具 / base64转图片</em>
     <section class='platform'>
-        <canvas></canvas>
+        <div>
+            <img>
+        </div>
         <textarea oninput='doBase64ToImage()' onpropertychange='doBase64ToImage()'></textarea>
         <span class="warn">
             温馨提示：请把base64图片数据复制到右边查看效果！
