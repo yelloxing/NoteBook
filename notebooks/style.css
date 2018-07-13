@@ -71,6 +71,13 @@ body .btn>*:not(:first-child) {
 body .btn>.download {
     background-image: url('../image/download.png');
 }
-ul{
+
+ul {
     margin-left: 1em;
+}
+
+.important {
+    color: red;
+    font-weight: 600;
+    padding: 0 .5em;
 }
