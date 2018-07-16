@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset='utf-8'>
+    <title>离线小助手</title>
+    <link rel="icon" href="favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,maximum-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="Keywords" content="离线小助手" />
+    <meta name="description" content="离线小助手" />
+    <meta name="author" content="心叶" />
+    <link rel="apple-touch-icon" sizes="52x52" href="52icon.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="72icon.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="120icon.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="144icon.png" />
+    <link rel="stylesheet" href="../easycss-1.0.0.css">
+    <script src="../lib/luna-1.0.0.js"></script>
+    <style>
+        body>footer {
+            width: 10rem;
+            margin: auto;
+            line-height: 1rem;
+            font-size: .14rem;
+            color: #43515a;
+        }
+
+        body>article {
+            width: 10rem;
+            margin: auto;
+            font-size: 0;
+            margin-top: .1rem;
+        }
+
+        body>article>* {
+            display: inline-block;
+            font-size: .16rem;
+            vertical-align: top;
+        }
+
+        body>article>nav {
+            width: 1.6rem;
+        }
+
+        body>article>section {
+            width: 7rem;
+            margin: 0 .4rem;
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 0 15px;
+        }
+
+        body>article>nav>span {
+            border-width: 0 1px 1px 1px;
+            border-style: solid;
+            border-color: #e9e4e4;
+            display: block;
+            padding: .01rem .1rem;
+            line-height: 2em;
+            cursor: pointer;
+            color: #435159;
+        }
+
+        body>article>nav>span:first-child {
+            border-top-width: 1px;
+        }
+
+        body>article>nav>span:nth-child(2n) {
+            background-color: #fbfbfb;
+        }
+
+        body>article>nav>span:nth-child(2n+1) {
+            background-color: white;
+        }
+
+        body>article>section>ul>li:not(:first-child) {
+            border-top: 1px solid #f6f6f6;
+        }
+
+        body>article>section>ul:not(:first-child) {
+            display: none;
+        }
+
+        body>article>section>ul>li {
+            line-height: 3em;
+            cursor: pointer;
+        }
+
+        body>article>section>ul>li>a {
+            color: #43515a;
+        }
+    </style>
+    <script>
+        function doNav(flag, target) {
+            $$($$(target).parents('article').find('ul').css('display', 'none')[flag]).css('display', 'block');
+        }
+    </script>
+</head>
+
+<body>
+    <article>
+        <nav>
+            <span onclick='doNav(0,this)'>
+                框架学习笔记
+            </span>
+        </nav>
+        <section id='innerNav'>
+            <ul>
+                <li>
+                    <a href="./vue2/index.html" target="_blank">vue2系统学习随手笔记</a>
+                </li>
+            </ul>
+        </section>
+    </article>
+    <footer>
+        Copyright&copy;离线小助手 2018 心叶
+    </footer>
+</body>
+
+</html>
