@@ -27,101 +27,58 @@
             color: #43515a;
         }
 
-        body>article {
+        body>section>.title {
+            padding-bottom: 9px;
+            border-bottom: 1px solid #eee;
+            display: block;
+            font-weight: 800;
+        }
+
+        body>section {
             width: 10rem;
             margin: auto;
-            font-size: 0;
-            margin-top: .1rem;
-        }
-
-        body>article>* {
-            display: inline-block;
-            font-size: .16rem;
-            vertical-align: top;
-        }
-
-        body>article>nav {
-            width: 1.6rem;
-        }
-
-        body>article>section {
-            width: 7rem;
-            margin: 0 .4rem;
             background-color: #fff;
+            padding: 15px;
+            margin-top: 10px;
             border-radius: 4px;
-            padding: 0 15px;
+            padding-bottom: 0;
         }
 
-        body>article>nav>span {
-            border-width: 0 1px 1px 1px;
-            border-style: solid;
-            border-color: #e9e4e4;
-            display: block;
-            padding: .01rem .1rem;
-            line-height: 2em;
-            cursor: pointer;
-            color: #435159;
-        }
-
-        body>article>nav>span:first-child {
-            border-top-width: 1px;
-        }
-
-        body>article>nav>span:nth-child(2n) {
-            background-color: #fbfbfb;
-        }
-
-        body>article>nav>span:nth-child(2n+1) {
-            background-color: white;
-        }
-
-        body>article>section>ul>li:not(:first-child) {
+        body>section>ul>li:not(:first-child) {
             border-top: 1px solid #f6f6f6;
         }
 
-        body>article>section>ul:not(:first-child) {
-            display: none;
-        }
-
-        body>article>section>ul>li {
+        body>section>ul>li {
             line-height: 3em;
             cursor: pointer;
-        }
-
-        body>article>section>ul>li>a {
-            color: #43515a;
+            background-repeat: no-repeat;
+            background-size: auto 80%;
+            background-position: right center;
         }
     </style>
-    <script>
-        function doNav(flag, target) {
-            $$($$(target).parents('article').find('ul').css('display', 'none')[flag]).css('display', 'block');
-        }
-    </script>
 </head>
 
 <body>
-    <article>
-        <nav>
-            <span onclick='doNav(0,this)'>
-                框架学习笔记
-            </span>
-            <span onclick='doNav(1,this)'>
-                数据可视化技术
-            </span>
-        </nav>
-        <section id='innerNav'>
-            <ul>
-                <li>
-                    <a href="./vue2/index.html" target="_blank">vue2系统学习随手笔记</a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a href="./d3.js/index.html" target="_blank">D3.js系统学习随手笔记</a>
-                </li>
-            </ul>
-        </section>
-    </article>
+    <section>
+        <div class="title">
+            框架学习笔记
+        </div>
+        <ul>
+            <li style='background-image:url("../image/vue.png")'>
+                <a href="./vue2/index.html" target="_blank">vue2系统学习随手笔记</a>
+            </li>
+        </ul>
+    </section>
+    <section>
+        <div class="title">
+            数据可视化技术
+        </div>
+        <ul>
+            <li style='background-image:url("../image/d3.png")'>
+                <a href="./d3.js/index.html" target="_blank">D3.js系统学习随手笔记</a>
+            </li>
+        </ul>
+    </section>
     <footer>
         Copyright&copy;离线小助手 2018 心叶
     </footer>
