@@ -114,6 +114,12 @@ module.exports = {
         path: __dirname,
         filename: 'build/main.js'
     },
+    resolve: {
+        alias: {
+            // vue.js = vue.common.js + compiler.js，而如果要使用 template 这个属性的话就一定要用 compiler.js
+            'vue': 'vue/dist/vue.js'
+        }
+    },
     module: {
         loaders: [{
                 test: /\.vue$/,
@@ -139,7 +145,9 @@ module.exports = {
             vue2是通过vue对象来管理一块区域的显示和交互的，具体管理哪一块区域是通过页面上的挂载点来标记。在项目根目录里新建一个index.html，并添加下面二行代码：
         </div>
         <pre class="code">
-&lt;div id="root"&gt;&lt;/div&gt;
+&lt;div id="root"&gt;
+    {{infomation}}
+&lt;/div&gt;
 
 &lt;script src="./build/main.js"&gt;&lt;/script&gt; </pre>
         <div class="block">
@@ -157,14 +165,14 @@ var vm = new Vue({
     //匹配挂载点
     el: '#root',
 
-    //启动渲染
-    render: createElement => {
-        return createElement('h1', '欢迎来到vue的世界！');
+    //数据
+    data:{
+        'infomation':'欢迎来到vue的世界！'
     }
 
 });</pre>
         <div class="block">
-            el: '#root'标明了该vue对象管理的区域，render属性规定如何渲染。
+            el: '#root'标明了该vue对象管理的区域，data里面的就是数据，index.html里面的{{infomation}}双向绑定显示出来。
         </div>
         <div class="name">
             启动运行
