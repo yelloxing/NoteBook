@@ -18,54 +18,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="144icon.png" />
     <link rel="stylesheet" href="../../easycss-1.0.0.css">
     <link rel="stylesheet" href="../../style.css">
-    <style>
-        body>header>ul>li {
-            position: relative;
-        }
-
-        body>header>ul>li.active::after {
-            display: inline-block;
-            width: .1rem;
-            height: .1rem;
-            transform: rotate(45deg);
-            background-color: #f6f6f6;
-            position: absolute;
-            content: " ";
-            top: .45rem;
-            left: 50%;
-            margin-left: -.06rem;
-        }
-
-        body>ul {
-            width: 10rem;
-            margin: auto;
-            background-color: #fff;
-            border-radius: 4px;
-            padding: 0 15px;
-            margin-top: 10px;
-        }
-
-        body>ul>li {
-            line-height: 3em;
-            cursor: pointer;
-        }
-
-        body>ul>li>a {
-            color: #43515a;
-        }
-
-        body>ul>li:not(:first-child) {
-            border-top: 1px solid #f6f6f6;
-        }
-
-        body>footer {
-            width: 10rem;
-            margin: auto;
-            line-height: 1rem;
-            font-size: .14rem;
-            color: #43515a;
-        }
-    </style>
+    <link rel="stylesheet" href="../../notebooks/style.css">
 </head>
 
 <body>
@@ -83,19 +36,48 @@
             </li>
         </ul>
     </header>
-    <em class='position'>当前位置：更多 / 框架学习笔记 / vue2系统学习随手笔记</em>
-    <ul>
-        <li>
-            <a href="./day01.html" target="_blank">
-                [01] 初识vue2和使用webpack搭建基础的框架
-            </a>
-        </li>
-        <li>
-            <a href="./day02.html" target="_blank">
-                [02] 实例对象和基本说明
-            </a>
-        </li>
-    </ul>
+    <em class='position'>当前位置：更多 / 框架学习笔记 / vue2系统学习随手笔记 / [02] 实例对象和基本说明</em>
+    <section>
+        <div class="title">实例对象</div>
+        <div class="block">
+            vue的应用都是从创建vue实例对象开始的，实例对象负责管理选择的区域，更多的技术都是在这个区域里面被这个实例对象使用，因此，先来看看这个实例对象。
+        </div>
+        <div class="block">
+            创建实例对象的方法就是new一个vue对象，基本的结构如下：
+        </div>
+        <pre class="code">
+var vm=new Vue({
+
+    el: '挂载点',
+
+    render:function(createElement) { 
+        //可选，返回创建好的模板
+    },
+
+    template:"可选，和render不可以同时存在，参数是html标签",
+
+    beforeCreate:'可选，生命周期钩子，是一个函数，本文结尾图中别的钩子类似',
+
+    data() {//可选
+        return {
+            //键值对，双向绑定的数据
+        }
+    },
+
+    ......
+
+});</pre>
+        <div class="block">
+            实例对象创建以后，在其管理的区域中根据提供的API就可以实现需要的效果了；需要明白的是所有的Vue组件都是Vue实例，并且接受相同的选项对象(一些根实例特有的选项除外)。
+        </div>
+    </section>
+    <section>
+        <div class="title">生命周期</div>
+        <div class="block">
+            实例对象从创建到销毁的整个过程中如下图所示，可以通过这些钩子在必要的时候触发操作。
+        </div>
+        <img style='width:700px;margin:auto;display:block;' src="../../image/lifecycle.vue.png" alt="vue对象生命周期">
+    </section>
     <footer>
         Copyright&copy;离线小助手 2018 心叶
     </footer>
