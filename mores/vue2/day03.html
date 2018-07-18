@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset='utf-8'>
+    <title>离线小助手</title>
+    <link rel="icon" href="../../favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,maximum-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="Keywords" content="离线小助手" />
+    <meta name="description" content="离线小助手" />
+    <meta name="author" content="心叶" />
+    <link rel="apple-touch-icon" sizes="52x52" href="52icon.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="72icon.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="120icon.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="144icon.png" />
+    <link rel="stylesheet" href="../../easycss-1.0.0.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../notebooks/style.css">
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li onclick='window.location.href="https://github.com/yelloxing/yelloxing.github.io"'>离线小助手</li>
+            <li onclick='window.location.href="../../index.html#/apis"'>API查询</li>
+            <li onclick='window.location.href="../../index.html#/notebooks"'>文档笔记</li>
+            <li onclick='window.location.href="../../index.html#/tools"'>小工具</li>
+            <li onclick='window.location.href="../../index.html#/subjects"'>专题学习</li>
+            <li onclick='window.location.href="../../index.html#/components"'>常用组件</li>
+            <li onclick='window.location.href="../../index.html#/mores"'>更多</li>
+            <li>
+                <input type="text" placeholder="search...">
+            </li>
+        </ul>
+    </header>
+    <em class='position'>当前位置：更多 / 框架学习笔记 / vue2系统学习随手笔记 / [03] 计算属性和侦听器</em>
+    <section>
+        <div class="title">计算属性</div>
+        <div class="block">
+            现在有一个数据，如下：
+        </div>
+        <pre class="code">
+data() {
+    return {
+
+        message: 'yelloxing'
+
+    }
+}</pre>
+        <div class="block">
+            如果你使用其在页面上及时显示数据（单向绑定），你可以这样：
+        </div>
+        <div class="code">
+            {{message}}
+        </div>
+        <div class="block">
+            如果想及时显示message经过一定改造后的数据，你可以这样：
+        </div>
+        <div class="code">
+            {{ message.split('').reverse().join('') }}
+        </div>
+        <div class="block">
+            不过这样会导致模板本来只是用来显示数据，现在充满了过于复杂的逻辑，这时候你可以选择计算属性。
+        </div>
+        <div class="block">
+            计算属性用的是vue实例对象的computed选项如下配置：
+        </div>
+        <pre class="code">
+computed: {
+    
+    //计算属性的getter
+    reversedMessage: function () {
+    
+        //'this'指向vm实例
+        return this.message.split('').reverse().join('');
+    
+    }
+
+}</pre>
+        <div class="block">
+            此时，使用如下reversedMessage显示就可以实现同样的效果：
+        </div>
+        <div class="code">
+            {{reversedMessage}}
+        </div>
+        <div class="block">
+            计算属性默认使用函数代表的是getter，你也可以明确使用getter和setter，例子如下：
+        </div>
+        <pre class="code">
+computed: {
+                    
+    reversedMessage:{
+                    
+        set:function(newValue){
+            //todo
+        },
+        get:function(){
+            //todo
+        }
+                    
+    }
+                
+}</pre>
+    </section>
+    <section>
+        <div class="title">侦听器</div>
+        <div class="block">
+            Vue提供了一种更通用的方式来观察和响应Vue实例上的数据变动：侦听属性。对比上面的例子，你可以监听message的改变，然后实时修改，代码如下：
+        </div>
+        <pre class="code">
+watch: {
+
+    message:function(val){
+        this.reversedMessage=val.split('').reverse().join('');
+    }
+
+}</pre>
+    </section>
+    <footer>
+        Copyright&copy;离线小助手 2018 心叶
+    </footer>
+</body>
+
+</html>
