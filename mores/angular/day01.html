@@ -67,6 +67,49 @@
             此时，项目就搭建成功了。
         </div>
     </section>
+    <section>
+        <div class="title">目录结构</div>
+        <div class="block">
+            现在来看看ng命令帮助我们生成了什么，也就是项目的目录结构，里面都是干什么的，先有个大致了解，你可以不知道全部，不过先记住下面几个个人感觉重要的：
+            <ul>
+                <li>1.src：应用代码存放的地方；</li>
+                <li>2.src/app：你的代码主要存放的地方，这样说也许不合适，不过你开发的时候，大部分时间都是在修改这里的代码；</li>
+                <li>3.src/assets：图片等存放的地方，构建时会复制到发布包里；</li>
+                <li>4.src/main.js：你基本不会修改它，它是程序的主入口；</li>
+                <li>5.src/styles.css：特别用的样式写在对应的地方，后面会说，对于公共的样式就会写在这里；</li>
+                <li>6.karma.conf.js：给Karma的单元测试配置，当运行ng test时会用到它。</li>
+            </ul>
+        </div>
+        <div class="name">
+            app.module.ts
+        </div>
+        <div class="block">
+            上面描述了主要的文件意义，接着，来看一下模块文件src/app/app.module.ts文件，其中定义了AppModule，根模块为Angular描述如何组装应用，先来看一下里面的内容：
+        </div>
+        <pre class="code">
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+            
+import { AppComponent } from './app.component';
+            
+@NgModule({
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
+})
+export class AppModule { }</pre>
+        <div class="block">
+            注意里面的bootstrap属性设置了[AppComponent]，表示启动组件，以后添加新的组件或者服务、指令等就可以在里面嵌套添加或被调用了（当然，除了局部使用的服务，别的都需要在这里引入或声明）。
+        </div>
+    </section>
+    <div class="btn">
+        <a class="download" download="angular基本框架.zip" href="./angular.quick.zip">下载基本框架</a>
+    </div>
     <footer>
         Copyright&copy;离线小助手 2018 心叶
     </footer>
