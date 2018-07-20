@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset='utf-8'>
+    <title>离线小助手</title>
+    <link rel="icon" href="../../favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,maximum-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="Keywords" content="离线小助手" />
+    <meta name="description" content="离线小助手" />
+    <meta name="author" content="心叶" />
+    <link rel="apple-touch-icon" sizes="52x52" href="52icon.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="72icon.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="120icon.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="144icon.png" />
+    <link rel="stylesheet" href="../../easycss-1.0.0.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../notebooks/style.css">
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li onclick='window.location.href="https://github.com/yelloxing/yelloxing.github.io"'>离线小助手</li>
+            <li onclick='window.location.href="../../index.html#/apis"'>API查询</li>
+            <li onclick='window.location.href="../../index.html#/notebooks"'>文档笔记</li>
+            <li onclick='window.location.href="../../index.html#/tools"'>小工具</li>
+            <li onclick='window.location.href="../../index.html#/subjects"'>专题学习</li>
+            <li onclick='window.location.href="../../index.html#/components"'>常用组件</li>
+            <li onclick='window.location.href="../../index.html#/mores"'>更多</li>
+            <li>
+                <input type="text" placeholder="search...">
+            </li>
+        </ul>
+    </header>
+    <em class='position'>当前位置：更多 / 框架学习笔记 / Angular系统学习随手笔记 / [03] 基本的服务使用和自定义服务说明</em>
+    <section>
+        <div class="title">基本说明</div>
+        <div class="block">
+            组件或指令等不应该把太多精力放在数据的获取和复杂处理上，一般会把这些事情交给服务去处理，并且由于服务的特点，具有更高的复用性；和别的不同，Angular对服务的约束比较少，更多的难点在前端或算法等本身。
+        </div>
+    </section>
+    <section>
+        <div class="title">如何自定义服务？</div>
+        <div class="block">
+            假如现在有一个组件需要或者一组数组数据，可以创建一个提供该数据的服务ShowService，代码如下：
+        </div>
+        <pre class="code">
+import { Injectable } from '@angular/core';
+                
+export class DataFormat {
+    id: number;
+    info: string;
+}
+                
+@Injectable()
+export class ShowService {
+                
+    getData(): DataFormat[] {
+        return [
+            { id: 1, info: "Angular" },
+            { id: 2, info: "React" },
+            { id: 3, info: "Vue" }
+        ];
+    }
+                
+}</pre>
+        <div class="block">
+            @Injectable()装饰器是把这个类标记为依赖注入系统的参与者之一（注意此处可有可无，加上是个好习惯）。
+        </div>
+    </section>
+    <section>
+        <div class="title">注入服务</div>
+        <div class="block">
+            根据
+            <em class="important">依赖注入</em>的思想，哪里需要，就哪里注入，注入之后就可以使用。因此，你需要在需要使用的范围注入，在使用的地方使用就好了，下面举例几个注入情况。
+        </div>
+        <div class="name">在模块中注入</div>
+        <pre class="code">
+import { NgModule } from '@angular/core';
+                
+......
+
+import {ShowService} from './show.service';
+                
+@NgModule({
+                  
+    ......
+
+    providers: [
+        ShowService
+    ]
+
+    ......
+
+})
+...
+</pre>
+        <div class="name">在组件中注入</div>
+        <pre class="code">
+import { Component } from '@angular/core';
+                
+import { ShowService } from './show.service';
+                
+@Component({
+                  
+    ......
+
+    providers:[
+        ShowService
+    ]
+                
+})
+......</pre>
+        <div class="block">
+            模块中注入以后，子模块和其中的组件都可以使用注入的服务，而组件中注入只有组件自己和子组件可以使用该服务。
+        </div>
+    </section>
+    <section>
+        <div class="title">使用服务</div>
+        <div class="block">
+            服务注入以后，想调用服务，可以使用构造函数注入，例子如下（组件中使用）：
+        </div>
+        <pre class="code">
+import { Component } from '@angular/core';
+                
+import { ShowService } from './show.service';
+                
+@Component({
+                
+    ......
+
+})
+export class ShowComponent {
+                
+    dataList: any[];
+                
+    constructor(private showService: ShowService) {
+
+        //使用服务
+        this.dataList = this.showService.getData();
+
+    }
+                
+}</pre>
+    </section>
+    <footer>
+        心叶 &copy;2007-2018 走一步，再走一步
+    </footer>
+</body>
+
+</html>
