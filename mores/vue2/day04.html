@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset='utf-8'>
+    <title>离线小助手</title>
+    <link rel="icon" href="../../favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,maximum-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="Keywords" content="离线小助手" />
+    <meta name="description" content="离线小助手" />
+    <meta name="author" content="心叶" />
+    <link rel="apple-touch-icon" sizes="52x52" href="52icon.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="72icon.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="120icon.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="144icon.png" />
+    <link rel="stylesheet" href="../../easycss-1.0.0.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../notebooks/style.css">
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li onclick='window.location.href="https://github.com/yelloxing/yelloxing.github.io"'>离线小助手</li>
+            <li onclick='window.location.href="../../index.html#/apis"'>API查询</li>
+            <li onclick='window.location.href="../../index.html#/notebooks"'>文档笔记</li>
+            <li onclick='window.location.href="../../index.html#/tools"'>小工具</li>
+            <li onclick='window.location.href="../../index.html#/subjects"'>专题学习</li>
+            <li onclick='window.location.href="../../index.html#/components"'>常用组件</li>
+            <li onclick='window.location.href="../../index.html#/mores"'>更多</li>
+            <li>
+                <input type="text" placeholder="search...">
+            </li>
+        </ul>
+    </header>
+    <em class='position'>当前位置：更多 / 框架学习笔记 / vue2系统学习随手笔记 / [04] 组件基础和自定义组件</em>
+    <section>
+        <div class="title">基本说明</div>
+        <div class="block">
+            组件是可复用的Vue实例对象，且带有一个名字，自定义一个组件的方法有很多，一个共同点是：嵌套组合形成一个完整的页面。
+        </div>
+    </section>
+    <section>
+        <div class="title">自定义组件</div>
+        <div class="block">
+            除了new Vue()的方法外，还可以通过.vue文件、new Vue()中的选项components和Vue.component()等来定义组件。
+        </div>
+        <div class="block">
+            同时，因为组件名称意义的模糊，没有固定的形式，可以用来形成页面模板，有效控制效果的等类似产物都可以称为组件，下面来说说几种定义方法。
+        </div>
+        <div class="name">
+            单文件组件
+        </div>
+        <div class="block">
+            也就是通过.vue文件创建组件，比如现在有一个组件message.vue，代码如下（更具体的细节此处不涉及，下同）：
+        </div>
+        <pre class="code">
+//模板
+&lt;template&gt;
+    &lt;p&gt;{{message}}&lt;/p&gt;
+&lt;/template&gt;
+
+//控制
+&lt;script&gt;
+export default {
+    data: function() {
+        return {
+            message: "欢迎来到vue2的世界！"
+        };
+    }
+};
+&lt;/script&gt;
+
+//样式
+&lt;style scoped&gt;
+p {
+    color: red;
+}
+&lt;/style&gt;</pre>
+        <div class="block">
+            这样一个组件就定义好了，使用前，先要导入进来：
+        </div>
+        <div class="code">
+            import Message from './message.vue';
+        </div>
+        <div class="block">
+            这样，Message就是可以使用的组件了，比如在路由在使用，或者作为createElement()函数的参数：
+        </div>
+        <pre class="code">
+var vm = new Vue({
+
+    ......
+    
+    render: function (createElement) {
+
+        return createElement(Message);
+
+    }
+                    
+});</pre>
+        <div class="name">component方法之全局注册</div>
+        <div class="block">
+            Vue对象提供了component方法，可以直接定义一个组件，例子如下（代码在./study.component.js中）：
+        </div>
+        <pre class="code">
+import Vue from 'vue';
+                
+Vue.component('study-component', {
+
+    template: "&lt;em&gt;{{messages}}&lt;/em&gt;",
+
+    data() {
+        return {
+            messages: 'vue学习小基地'
+        };
+    }
+
+});</pre>
+        <div class="block">
+            同样的，在使用前，需要引入：
+        </div>
+        <div class="code">
+            import './study.component.js';
+        </div>
+        <div class="block">
+            因为组件是全局注册的，你可以在任何地方通过&lt;study-component&gt;&lt;/study-component&gt;标签使用这个组件。
+        </div>
+        <div class="name">component方法之局部注册</div>
+        <div class="block">
+            同样刚刚的例子，比如在一个组件中需要使用一个局部定义的组件，用例如下：
+        </div>
+        <pre class="code">
+import Vue from 'vue';
+                
+var study ={
+    template: "&lt;em&gt;{{messages}}&lt;/em&gt;",
+    data() {
+        return {
+            messages: 'vue学习小基地'
+        };
+    }
+};
+                
+Vue.component('show-component', {
+
+    template: "&lt;div&gt;&lt;study-component&gt;&lt;/study-component&gt;&lt;/div&gt;",
+
+    components:{
+        'study-component':study
+    }
+
+}); </pre>
+        <div class="block">
+            需要注意的是局部注册的组件在其子组件中不可用
+        </div>
+    </section>
+    <footer>
+        心叶 &copy;2007-2018 走一步，再走一步
+    </footer>
+</body>
+
+</html>
