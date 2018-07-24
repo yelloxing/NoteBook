@@ -46,6 +46,80 @@
             属性型指令通过改变元素、组件或其它指令的外观和行为的指令；结构型指令则是通过添加和移除DOM元素改变DOM布局的指令。
         </div>
     </section>
+    <section>
+        <div class="title">属性型指令</div>
+        <div class="block">
+            属性型指令至少需要一个带有@Directive装饰器的控制器类，该装饰器指定了一个用于标识属性的选择器，控制器类实现了指令需要的指令行为。
+        </div>
+        <div class="name">基本使用</div>
+        <div class="block">
+            自定义一个指令ui-important用来标记重要文字，指令代码如下【代码在important.directive.ts】：
+        </div>
+        <pre class="code">
+import { Directive, ElementRef } from '@angular/core';
+                
+@Directive({
+    selector: '[ui-important]'
+})
+export class ImportantDirective {
+                  
+    constructor(el: ElementRef) {
+        el.nativeElement.style.color = 'red';
+    }
+
+}</pre>
+        <div class="block">
+            在使用前，需要先引入：
+        </div>
+        <pre class="code">
+......                
+import { ImportantDirective } from './important.directive';  
+......
+@NgModule({
+    declarations: [
+        ......
+        ImportantDirective
+    ],
+......</pre>
+        <div class="block">
+            接着，就可以使用了：
+        </div>
+        <div class="code">
+            &lt;div ui-important&gt;指令的学习&lt;/div&gt;
+        </div>
+        <div class="block">
+            这里指令通过构造函数注入目标结点，从而修改样式为红色。
+        </div>
+        <div class="name">响应用户引发的事件</div>
+        <div class="block">
+            有时候，需要根据用户的行为来修改元素，比如鼠标进入以后才变红，可以这样修改指令：
+        </div>
+        <pre class="code">
+import { Directive, ElementRef, HostListener } from '@angular/core';
+                
+@Directive({
+    selector: '[ui-important]'
+})
+export class ImportantDirective {
+                
+    node: ElementRef;
+                
+    // 鼠标进入触发
+    @HostListener('mouseenter') onMouseEnter() {
+        this.node.nativeElement.style.color = 'red';
+    }
+                
+    constructor(el: ElementRef) {
+        this.node = el;
+    }
+}</pre>
+    </section>
+    <section>
+        <div class="title">结构型指令</div>
+        <div class="block">
+            该指令用于添加、移除或维护结点元素，可以把结构型指令应用到一个宿主元素上，然后它就可以对宿主元素及其子元素做点什么。需要注意的是，你可以在一个宿主元素上应用多个属性型指令，但只能应用一个结构型指令。
+        </div>
+    </section>
     <footer>
         心叶 &copy;2007-2018 走一步，再走一步
     </footer>
