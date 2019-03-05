@@ -45,7 +45,7 @@ header {
     text-align: center;
     color: #d66eac;
     padding-top: 1.2rem;
-    background-image: url(../clay.png);
+    background-image: url(./clay.png);
     background-repeat: no-repeat;
     background-position: center top;
     cursor: pointer;
