@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="../../clay.png" type="image/x-png">
+    <title>clay.js - 用例测试 - svg.tree.rotate</title>
+    <script src="../../data/program.json.js"></script>
+    <script src="../../libs/clay.js"></script>
+</head>
+
+<body>
+
+    <script>
+
+        // 准备bezier曲线绘制对象
+        var bezier = $$.svg.bezier().setType(340, 340, "circle").setL(50);
+
+        // tree布局
+        $$.treeLayout()
+
+            // 配置原始数据数据结构
+            .root(initTree => initTree).child(parentTree => parentTree.children).id(treedata => treedata.name)
+
+            // 配置绘图方法
+            .drawer(function (nodes, rootid, size) {
+
+                // 把结点数据和g标签关联起来
+                $$('<svg></svg>').attr('width', 700).attr('height', 700).appendTo('body').find('g').data(
+
+                    // tree布局计算后的简单模型
+                    // 经过tree计算辅助对象处理
+                    // 直接变成绘制目标树的数据
+                    $$.treeCalc({
+                        "type": "circle",
+                        "radius": 300, "cx": 350, "cy": 350,
+                    })(nodes, size)).enter('g').appendTo('svg')
+
+                    // 在结点显示标记数据
+                    .attr('id', data => data.id)
+
+                    // 轮询结点循环执行方法
+                    // 绘制图形
+                    .loop(function (data, index, target) {
+
+                        // 启动定时执行
+                        window.setTimeout(function () {
+
+                            // 绘制连线
+                            if (data.pid) {
+                                var pnode_data = $$('[id=' + data.pid + ']').datum();
+                                $$('<path>')
+                                    .css({ "fill": "none", "stroke": "gray" })
+                                    .attr('d', bezier(+pnode_data.left, +pnode_data.top, data.left, data.top))
+                                    .appendTo(target)
+                            }
+
+                            // 绘制结点
+                            $$('<circle stroke-width="1" fill="red" r="3">')
+                                .attr('cx', data.left).attr('cy', data.top).css("fill", "#ea779e")
+                                .appendTo(target);
+
+                        }, index * 50);
+
+                    });
+
+            })(program.data);
+
+    </script>
+
+</body>
+
+</html>
