@@ -2,7 +2,7 @@
 
 建立的初衷是一些零碎知识的积累和方便在断网情况下一些文档的查阅，希望可以给你带来帮助，也欢迎你的加入。
 
-<img align="right" height="100" src="https://github.com/yelloxing/yelloxing.github.io/blob/master/logo.png">
+<img align="right" height="100" src="https://github.com/yelloxing/notebook/blob/master/logo.png">
 
 ****
 ### 作者:心叶
