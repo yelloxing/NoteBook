@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset='utf-8'>
+    <title>离线小助手</title>
+    <link rel="icon" href="../../favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,maximum-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="Keywords" content="离线小助手" />
+    <meta name="description" content="离线小助手" />
+    <meta name="author" content="心叶" />
+    <link rel="apple-touch-icon" sizes="52x52" href="52icon.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="72icon.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="120icon.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="144icon.png" />
+    <link rel="stylesheet" href="../../easycss-1.0.0.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li onclick='window.location.href="https://github.com/yelloxing/notebook"'>离线小助手</li>
+            <li onclick='window.location.href="../../index.html"'>文档</li>
+            <li onclick='window.location.href="../../tools/mspainter/index.html"'>画板</li>
+            
+            
+            
+            
+            <li>
+                <input type="text" placeholder="search...">
+            </li>
+        </ul>
+    </header>
+    <em class='position'>当前位置：文档 / JavaScript文档 / AngularJS使用经验和有益的知识总结</em>
+    <section>
+      <div class="title">视图和model之间的数据格式化</div>
+      <div class="block">
+          类似过滤器的功能，在写指令的时候，我们可能希望输入框在页面显示的是益于阅读的，而获取值的时候获取的是简洁的，因此你可能会需要在link中使用下面的方法来实现这个功能。
+      </div>
+      <div class="block">1.model到view的数据格式化：</div>
+      <div class="code">
+          ctrl.$formatters.unshift(function(input) {});
+      </div>
+      <div class="block">2.view到model的数据格式化：</div>
+      <div class="code">
+          ctrl.$parsers.unshift(function(input) {});
+      </div>
+      <div class="block">
+          上面的$formatters和$parsers就是二个队列，视图到model和model到视图，会方便经过里面定义的方法的过滤，有点类似管道流，最后流到目的地。
+      </div>
+      <div class="warn">
+          温馨提示：别忘了设置类似require: "?ngModel"这样的语句去查找控制器。
+      </div>
+  </section>
+  <section>
+      <div class="title">视图和model数据不同步问题</div>
+      <div class="block">
+          有时候在指令里面通过jquery修改了input的数据，不过angularjs并不会知道，这时候，你有如下方法可以选择。
+      </div>
+      <div class="block">
+          1.触发输入框change改变，让Angularjs发现数据改变了，从而去调用$setViewValue(value),同步数据：
+      </div>
+      <div class="code">
+          $("input").trigger("change");
+      </div>
+      <div class="block">
+          2.直接手动触发同步value到viewValue和modelValue中的行为：
+      </div>
+      <div class="code">
+          ctrl.$setViewValue($scope.info);
+      </div>
+  </section>
+  <section>
+      <div class="title">表单控制</div>
+      <div class="block">
+          在自定义form表单的时候，或者新写一个指令来控制输入框输入的时候，为了统一控制表单输入是否合法（最后都通过$scope[表单名称]的方法来获取表单情况），你可以通过下面的方法来修改输入框是否合法：
+      </div>
+      <div class="code">
+          ctrl.$setValidity(errorType, boolean);//errorType表示错误类别，可以自定义
+      </div>
+  </section>
+    <footer>
+        心叶 &copy;2007-2019 走一步，再走一步
+    </footer>
+</body>
+
+</html>

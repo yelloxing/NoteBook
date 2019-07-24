@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset='utf-8'>
+    <title>离线小助手</title>
+    <link rel="icon" href="../../favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,maximum-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="Keywords" content="离线小助手" />
+    <meta name="description" content="离线小助手" />
+    <meta name="author" content="心叶" />
+    <link rel="apple-touch-icon" sizes="52x52" href="52icon.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="72icon.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="120icon.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="144icon.png" />
+    <link rel="stylesheet" href="../../easycss-1.0.0.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li onclick='window.location.href="https://github.com/yelloxing/notebook"'>离线小助手</li>
+            <li onclick='window.location.href="../../index.html"'>文档</li>
+            <li onclick='window.location.href="../../tools/mspainter/index.html"'>画板</li>
+            
+            
+            
+            
+            <li>
+                <input type="text" placeholder="search...">
+            </li>
+        </ul>
+    </header>
+    <em class='position'>当前位置：文档 / CSS文档 / scss版本的css预处理语言sass的快速使用手册</em>
+    <section>
+      <div class="title">变量</div>
+      <div class="block">
+          sass可以使用变量，就像下面这样，以$开头：
+      </div>
+      <pre class="code">
+$btn_bgcolor:#222222; 
+
+input.btn{ 
+  background-color:$btn_bgcolor; 
+}</pre>
+      <div class="block">
+          如果变量是用在字符串中，你需要用#{}包裹一下：
+      </div>
+      <pre class="code">
+$direction:top;
+          
+input.btn{            
+  margin-#{$direction}:10px;
+}</pre>
+  </section>
+  <section>
+      <div class="title">计算</div>
+      <div class="block">
+          sass支持的计算使用起来也很简单，就是编程语言类似的样子（不是一定必须的，不过运算符之间留空格是好的习惯）：
+      </div>
+      <pre class="code">
+div{            
+  padding:(14px / 2);
+  right: $var * 10%;                
+}</pre>
+  </section>
+  <section>
+      <div class="title">嵌套</div>
+      <div class="block">
+          个人使用总结，嵌套就二种，分离的和合并的（自己起的名字），合并的比分离的多了一个&，下面分别举例：
+      </div>
+      <pre class="code">
+//[分离的]源代码
+div{
+  .btn{
+      //Todo
+  }
+}
+//[分离的]编译后
+div .btn{
+  //Todo
+}
+          
+//[合并的]源代码
+div{
+  &.btn{
+      //Todo
+  }
+}
+//[合并的]编译后
+div.btn{
+  //Todo
+}</pre>
+  </section>
+  <section>
+      <div class="title">继承</div>
+      <div class="block">
+          现在有了一个公共的按钮样式：
+      </div>
+      <pre class="code">
+.btn{     
+  //按钮的公共样式  
+}</pre>
+      <div class="block">
+          你现在要写一个提交按钮，为了在基础按钮基础上开发，你可以写这样的代码：
+      </div>
+      <pre class="code">
+.btn-submit{        
+  @extend .btn;
+  //你对提交按钮的特殊样式
+}</pre>
+  </section>
+  <section>
+      <div class="title">Mixin</div>
+      <div class="block">
+          说的简单点就是代码模板预定义：
+      </div>
+      <pre class="code">
+@mixin bgQuick($url,$bgcolor:red){
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto auto;
+  background-image:url($url);
+  background-color:$bgcolor;
+}</pre>
+      <div class="block">
+          使用的时候，传递参数（有缺省值的可以传入也可以不传入）：
+      </div>
+      <pre class="code">
+div{
+  @include bgQuick('image/smile.png');
+}</pre>
+  </section>
+  <section>
+      <div class="title">函数</div>
+      <div class="block">
+          函数也很好用，看个例子：
+      </div>
+      <pre class="code">
+@function double($size) {
+  @return $size * 2;
+}
+              
+#sidebar {
+  width: double(5px);
+}</pre>
+  </section>
+  <section>
+      <div class="title">if</div>
+      <div class="block">
+          sass的@if用not,or,and分别表示非，或，与。
+      </div>
+      <pre class="code">
+$flag:1;
+          
+div{
+  @if $flag == 1 {
+      //Todo
+  } @else if($flag > 1 and $flag < 10){
+      //Todo
+  } @else {
+      //Todo
+  }
+}</pre>
+  </section>
+  <section>
+      <div class="title">for</div>
+      <pre class="code">
+@for $i from 0 to $home_nav_num {
+  .nav li:nth-child(#{$i + 1}) {
+      background-position-y: (0 - $i)*70px - 20px;
+  }
+}</pre>
+  </section>
+  <section>
+      <div class="title">while</div>
+      <pre class="code">
+$i:0;
+          
+@while $i <  $home_nav_num {        
+  .nav li:nth-child(#{$i + 1}) {
+      background-position-y: (0 - $i)*70px - 20px;
+  }
+}</pre>
+  </section>
+  <section>
+      <div class="title">each</div>
+      <pre class="code">
+@each $i in 1, 2, 3 {
+  .nav li:nth-child(#{$i + 1}) {
+      background-position-y: (0 - $i)*70px - 20px;
+  }
+}</pre>
+  </section>
+    <footer>
+        心叶 &copy;2007-2019 走一步，再走一步
+    </footer>
+</body>
+
+</html>

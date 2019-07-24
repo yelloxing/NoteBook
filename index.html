@@ -18,23 +18,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="144icon.png" />
     <link rel="stylesheet" href="easycss-1.0.0.css">
     <link rel="stylesheet" href="style.css">
-    <script src="./lib/jquery.min.js"></script>
-    <script>
-        // 切换导航
-        function loadPage(type) {
-            window.history.pushState(null, null, "#/" + type);
-            $('#pageTarget').attr('src', "./" + type + "/index.html");
-            $('body>header>ul>li').removeClass('active').filter('[onclick=\'loadPage("' + type + '")\']').addClass('active');
-        };
-        // 初始化
-        $(function () {
-            try {
-                loadPage(/#\/([^#]{1,})$/.exec(window.location.href)[1]);
-            } catch (e) {
-                loadPage('apis');
-            }
-        });
-    </script>
+    <script src="./jquery.min.js"></script>
     <style>
         body>header>ul>li {
             position: relative;
@@ -52,6 +36,64 @@
             left: 50%;
             margin-left: -.06rem;
         }
+        body>footer {
+            width: 10rem;
+            margin: auto;
+            line-height: 1rem;
+            font-size: .14rem;
+            color: #43515a;
+        }
+
+        body>div {
+            width: 10rem;
+            margin: auto;
+            background-color: #fff;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+
+        body>div>span {
+            padding-bottom: 9px;
+            border-bottom: 1px solid #eee;
+            display: block;
+            font-weight: 800;
+        }
+
+        body>div>ul {
+            font-size: 0;
+        }
+
+        body>div>ul>li {
+            background-color: #eee;
+            display: inline-block;
+            height: .96rem;
+            width: 33.33333333%;
+            background-repeat: no-repeat;
+            background-size: .6rem;
+            background-position: .08rem center;
+            padding-left: .76rem;
+            border: .1rem solid #fff;
+            margin-top: .1rem;
+        }
+
+        body>div>ul>li>a>span {
+            display: block;
+        }
+
+        body>div>ul>li>a>span:last-child {
+            color: #435159;
+            font-weight: 200;
+            font-size: .14rem;
+            line-height: .4rem;
+        }
+
+        body>div>ul>li>a>span:first-child {
+            color: #43515a;
+            font-size: .18rem;
+            line-height: .2rem;
+            padding-top: .16rem;
+        }
     </style>
 </head>
 
@@ -59,18 +101,78 @@
     <header>
         <ul>
             <li onclick='window.location.href="https://github.com/yelloxing/notebook"'>离线小助手</li>
-            <li onclick='loadPage("apis")'>API查询</li>
-            <li onclick='loadPage("notebooks")'>文档笔记</li>
-            <li onclick='loadPage("tools")'>小工具</li>
-            <li onclick='loadPage("subjects")'>专题学习</li>
-            <li onclick='loadPage("mores")'>流水学习</li>
-            <li onclick='loadPage("others")'>其它</li>
+            <li class='active'>文档</li>
+            <li onclick='window.location.href="tools/mspainter/index.html"'>画板</li>
             <li>
                 <input type="text" placeholder="search...">
             </li>
         </ul>
     </header>
-    <iframe frameborder="0" id="pageTarget" frameborder="no" marginwidth="0" marginheight="0"></iframe>
+    <div>
+        <span>CSS文档</span>
+        <ul>
+            <li style='background-image:url("./image/css.png");'>
+                <a href="./document/css/selector.html" target="_blank">
+                    <span>CSS选择器</span>
+                    <span>常用的选择器快速查询手册</span>
+                </a>
+            </li>
+            <li style='background-image:url("./image/scss.png");'>
+                <a href="./document/css/scss.html" target="_blank">
+                    <span>scss使用文档</span>
+                    <span>预处理语言sass的快速使用手册</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <span>JavaScript文档</span>
+        <ul>
+            <li style='background-image:url("./image/jquery.png");'>
+                <a href="./document/javascript/jquery.html" target="_blank">
+                    <span>jQuery</span>
+                    <span>快速查询一些常用的jQuery内容</span>
+                </a>
+            </li>
+            <li style='background-image:url("./image/angularjs.png");'>
+                <a href="./document/javascript/angularjs.html" target="_blank">
+                    <span>AngularJS</span>
+                    <span>使用经验和有益的知识总结</span>
+                </a>
+            </li>
+            <li style='background-image:url("./image/js.png");'>
+                <a href="./document/javascript/RegExp.html" target="_blank">
+                    <span>RegExp</span>
+                    <span>常用方法和规则整理</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <span>网络相关</span>
+        <ul>
+            <li style='background-image:url("./image/http.png");'>
+                <a href="./document/internet/http.html" target="_blank">
+                    <span>HTTP状态码</span>
+                    <span>请求响应状态码对应含义和版本</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <span>工具类手册</span>
+        <ul>
+            <li style='background-image:url("./image/git.png");'>
+                <a href="./document/tool/git.html" target="_blank">
+                    <span>GIT版本控制</span>
+                    <span>一些常用的命令快速查询</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <footer>
+        心叶 &copy;2007-2019 走一步，再走一步
+    </footer>
 </body>
 
 </html>
