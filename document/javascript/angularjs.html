@@ -19,18 +19,20 @@
     <link rel="stylesheet" href="../../easycss-1.0.0.css">
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../../prettify.css">
+    <script src="../../prettify.js"></script>
 </head>
 
-<body>
+<body onload="prettyPrint()">
     <header>
         <ul>
             <li onclick='window.location.href="https://github.com/yelloxing/notebook"'>离线小助手</li>
             <li onclick='window.location.href="../../index.html"' class='active'>查询文档</li>
             <li onclick='window.location.href="../../tools/mspainter/index.html"'>小画板</li>
-            
-            
-            
-            
+            <!-- 预留一 -->
+            <!-- 预留二 -->
+            <!-- 预留三 -->
+            <!-- 预留四 -->
             <li>
                 <input type="text" placeholder="search...">
             </li>
@@ -43,13 +45,9 @@
           类似过滤器的功能，在写指令的时候，我们可能希望输入框在页面显示的是益于阅读的，而获取值的时候获取的是简洁的，因此你可能会需要在link中使用下面的方法来实现这个功能。
       </div>
       <div class="block">1.model到view的数据格式化：</div>
-      <div class="code">
-          ctrl.$formatters.unshift(function(input) {});
-      </div>
+      <pre class="code prettyprint">ctrl.$formatters.unshift(function(input) {});</pre>
       <div class="block">2.view到model的数据格式化：</div>
-      <div class="code">
-          ctrl.$parsers.unshift(function(input) {});
-      </div>
+      <pre class="code prettyprint">ctrl.$parsers.unshift(function(input) {});</pre>
       <div class="block">
           上面的$formatters和$parsers就是二个队列，视图到model和model到视图，会方便经过里面定义的方法的过滤，有点类似管道流，最后流到目的地。
       </div>
@@ -65,24 +63,18 @@
       <div class="block">
           1.触发输入框change改变，让Angularjs发现数据改变了，从而去调用$setViewValue(value),同步数据：
       </div>
-      <div class="code">
-          $("input").trigger("change");
-      </div>
+      <pre class="code prettyprint">$("input").trigger("change");</pre>
       <div class="block">
           2.直接手动触发同步value到viewValue和modelValue中的行为：
       </div>
-      <div class="code">
-          ctrl.$setViewValue($scope.info);
-      </div>
+      <pre class="code prettyprint">ctrl.$setViewValue($scope.info);</pre>
   </section>
   <section>
       <div class="title">表单控制</div>
       <div class="block">
           在自定义form表单的时候，或者新写一个指令来控制输入框输入的时候，为了统一控制表单输入是否合法（最后都通过$scope[表单名称]的方法来获取表单情况），你可以通过下面的方法来修改输入框是否合法：
       </div>
-      <div class="code">
-          ctrl.$setValidity(errorType, boolean);//errorType表示错误类别，可以自定义
-      </div>
+      <pre class="code prettyprint">ctrl.$setValidity(errorType, boolean);//errorType表示错误类别，可以自定义</pre>
   </section>
     <footer>
         心叶 &copy;2007-2019 走一步，再走一步

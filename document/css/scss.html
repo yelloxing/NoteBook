@@ -19,18 +19,20 @@
     <link rel="stylesheet" href="../../easycss-1.0.0.css">
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../../prettify.css">
+    <script src="../../prettify.js"></script>
 </head>
 
-<body>
+<body onload="prettyPrint()">
     <header>
         <ul>
             <li onclick='window.location.href="https://github.com/yelloxing/notebook"'>离线小助手</li>
             <li onclick='window.location.href="../../index.html"' class='active'>查询文档</li>
             <li onclick='window.location.href="../../tools/mspainter/index.html"'>小画板</li>
-            
-            
-            
-            
+            <!-- 预留一 -->
+            <!-- 预留二 -->
+            <!-- 预留三 -->
+            <!-- 预留四 -->
             <li>
                 <input type="text" placeholder="search...">
             </li>
@@ -42,7 +44,7 @@
       <div class="block">
           sass可以使用变量，就像下面这样，以$开头：
       </div>
-      <pre class="code">
+      <pre class="code prettyprint">
 $btn_bgcolor:#222222; 
 
 input.btn{ 
@@ -51,7 +53,7 @@ input.btn{
       <div class="block">
           如果变量是用在字符串中，你需要用#{}包裹一下：
       </div>
-      <pre class="code">
+      <pre class="code prettyprint">
 $direction:top;
           
 input.btn{            
@@ -63,7 +65,7 @@ input.btn{
       <div class="block">
           sass支持的计算使用起来也很简单，就是编程语言类似的样子（不是一定必须的，不过运算符之间留空格是好的习惯）：
       </div>
-      <pre class="code">
+      <pre class="code prettyprint">
 div{            
   padding:(14px / 2);
   right: $var * 10%;                
@@ -74,7 +76,7 @@ div{
       <div class="block">
           个人使用总结，嵌套就二种，分离的和合并的（自己起的名字），合并的比分离的多了一个&，下面分别举例：
       </div>
-      <pre class="code">
+      <pre class="code prettyprint">
 //[分离的]源代码
 div{
   .btn{
@@ -102,14 +104,14 @@ div.btn{
       <div class="block">
           现在有了一个公共的按钮样式：
       </div>
-      <pre class="code">
+      <pre class="code prettyprint">
 .btn{     
   //按钮的公共样式  
 }</pre>
       <div class="block">
           你现在要写一个提交按钮，为了在基础按钮基础上开发，你可以写这样的代码：
       </div>
-      <pre class="code">
+      <pre class="code prettyprint">
 .btn-submit{        
   @extend .btn;
   //你对提交按钮的特殊样式
@@ -120,7 +122,7 @@ div.btn{
       <div class="block">
           说的简单点就是代码模板预定义：
       </div>
-      <pre class="code">
+      <pre class="code prettyprint">
 @mixin bgQuick($url,$bgcolor:red){
   background-repeat: no-repeat;
   background-position: center center;
@@ -131,7 +133,7 @@ div.btn{
       <div class="block">
           使用的时候，传递参数（有缺省值的可以传入也可以不传入）：
       </div>
-      <pre class="code">
+      <pre class="code prettyprint">
 div{
   @include bgQuick('image/smile.png');
 }</pre>
@@ -141,7 +143,7 @@ div{
       <div class="block">
           函数也很好用，看个例子：
       </div>
-      <pre class="code">
+      <pre class="code prettyprint">
 @function double($size) {
   @return $size * 2;
 }
@@ -155,7 +157,7 @@ div{
       <div class="block">
           sass的@if用not,or,and分别表示非，或，与。
       </div>
-      <pre class="code">
+      <pre class="code prettyprint">
 $flag:1;
           
 div{
@@ -170,7 +172,7 @@ div{
   </section>
   <section>
       <div class="title">for</div>
-      <pre class="code">
+      <pre class="code prettyprint">
 @for $i from 0 to $home_nav_num {
   .nav li:nth-child(#{$i + 1}) {
       background-position-y: (0 - $i)*70px - 20px;
@@ -179,7 +181,7 @@ div{
   </section>
   <section>
       <div class="title">while</div>
-      <pre class="code">
+      <pre class="code prettyprint">
 $i:0;
           
 @while $i <  $home_nav_num {        
@@ -190,7 +192,7 @@ $i:0;
   </section>
   <section>
       <div class="title">each</div>
-      <pre class="code">
+      <pre class="code prettyprint">
 @each $i in 1, 2, 3 {
   .nav li:nth-child(#{$i + 1}) {
       background-position-y: (0 - $i)*70px - 20px;
