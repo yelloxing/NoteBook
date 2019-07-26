@@ -164,6 +164,11 @@ body>section {
     border-radius: 4px;
 }
 
+body>section>.little-title {
+    color:red;
+    line-height: 2em;
+    font-weight: 800;
+}
 body>section>.title {
     font-size: .22rem;
     line-height: 2em;
@@ -181,6 +186,8 @@ body>section>.code {
     padding: .1rem;
     color: #435159;
     font-size: .14rem;
+    line-height: 1.6em;
+    font-style: normal;
 }
 
 body>section>.block {
