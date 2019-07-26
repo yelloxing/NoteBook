@@ -94,13 +94,14 @@ body>header>ul>li {
 
 body>header>ul>li.active::after {
     display: inline-block;
-    width: .1rem;
-    height: .1rem;
-    transform: rotate(45deg);
-    background-color: #f6f6f6;
+    width: 0;
+    height: 0;
+    border-width: .1rem;
+    border-color: transparent transparent #f6f6f6 transparent;
+    border-style: solid;
     position: absolute;
     content: " ";
-    top: .45rem;
+    top: .3rem;
     left: 50%;
     margin-left: -.06rem;
 }
