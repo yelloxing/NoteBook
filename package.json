@@ -1,9 +1,6 @@
 {
-  "name": "yelloxing.github.io",
-  "description": "A small front - line note for easy access.",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "name": "notebook",
+  "description": "A small note for easy access.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yelloxing/notebook.git"
