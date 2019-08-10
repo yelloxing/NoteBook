@@ -1,6 +1,7 @@
 body {
     background: #f6f6f6;
     padding-top: .6rem;
+    font-family: -apple-system,"Helvetica Neue",Helvetica,Arial,"PingFang SC","Hiragino Sans GB","WenQuanYi Micro Hei","Microsoft Yahei",sans-serif;
 }
 
 body>header {
