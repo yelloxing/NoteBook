@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset='utf-8'>
+  <title>离线小助手</title>
+  <link rel="icon" href="../../favicon.ico" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,maximum-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="email=no" />
+  <meta name="Keywords" content="离线小助手" />
+  <meta name="description" content="离线小助手" />
+  <meta name="author" content="心叶" />
+  <link rel="stylesheet" href="../../easycss-1.0.0.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../../prettify.css">
+  <script src="../../prettify.js"></script>
+</head>
+
+<body onload="prettyPrint()">
+  <header>
+    <ul>
+      <li onclick='window.location.href="https://github.com/yelloxing/notebook"'>离线小助手</li>
+      <li onclick='window.location.href="../index.html"' class='active'>小博客</li>
+      <li onclick='window.location.href="../../index.html"'>查询文档</li>
+      <li onclick='window.location.href="../../tools/mspainter/index.html"'>小画板</li>
+      <!-- 预留一 -->
+      <!-- 预留二 -->
+      <!-- 预留三 -->
+      <!-- 预留四 -->
+      <li>
+        <input type="text" placeholder="search...">
+      </li>
+    </ul>
+  </header>
+  <em class='position'>当前位置：小博客 / ES理解相关 / 理解prototype和__proto__（继承与原型链）</em>
+  <section>
+    <div class="title">基本概念和关系</div>
+    <img src="./images/prototype__proto__.png" alt="继承关系图">
+    <div class="block">
+      从关系图中可以看出来，ECMAScript中创建一个对象是通过new构造函数实现的，而本质上来说这个对象其实是以构造函数的属性prototype指向的对象为基本模板的，因此新对象的__proto__属性表明了自己来源于谁。
+    </div>
+    <div class="little-title">prototype</div>
+    <div class="block">
+      该属性用来指向创建一个对象的基本模板，默认指向new构造函数，也可以修改，或者通过改属性为新对象添加属性。
+    </div>
+    <div class="warn">
+      需要注意的是，该属性只有函数才有。
+    </div>
+    <pre class="code prettyprint">//构造函数
+function Clazz(name) {
+    this.name = name;
+}
+
+//创建对象
+var clazz = new Clazz('心叶');
+
+//通过prototype给对象添加方法
+Clazz.prototype.getName = function () {
+    alert(this.name);
+};
+
+clazz.getName();</pre>
+    <div class="little-title">__proto__</div>
+    <div class="block">
+      这个是对象上的属性，比较有意思，因为不是标准中规定的，使用的时候要小心。
+    </div>
+    <div class="block">
+      该属性的意思指创建该对象的构造函数的prototype，因此你可以通过对象的该属性修改原型。
+    </div>
+    <pre class="code prettyprint">function Clazz(name) {
+    this.name = name;
+}
+
+var clazz = new Clazz('心叶');
+var clazz2 = new Clazz('美羽');
+
+//通过__proto__给原型添加方法，这样创建的对象也会有该方法
+clazz2.__proto__.getName = function () {
+    alert(this.name);
+};
+
+clazz.getName();</pre>
+  </section>
+  <section>
+    <div class="title">继承例子</div>
+    <div class="block">
+      借助prototype或__proto__可以实现继承效果，下面是一个使用prototype的例子：
+    </div>
+    <div class="warn">
+      不演示__proto__的原因是因为其不是标准规定的，其次，使用它实现起来非常简单。
+    </div>
+    <pre class="code prettyprint">// 动物
+function Animal(name) {
+    this.name = name;
+}
+
+// 给动物添加方法
+Animal.prototype.getInfo = function () {
+    console.log('我的名字是:' + this.name);
+};
+
+// 猫
+function Cat(name, age) {
+    this.age = age;
+    Animal.call(this, name);
+}
+
+// 设置猫的原型为动物
+Cat.prototype = new Animal();
+
+//恢复构造函数为猫
+Cat.prototype.constuctor=Cat;
+
+// 给猫添加方法
+Cat.prototype.getAge = function () {
+    console.log('我的年龄是:' + this.age);
+};
+
+// 建立猫对象
+var cat = new Cat('可爱的猫咪', 19);
+cat.getInfo();
+cat.getAge();
+
+//建立动物对象
+var animal = new Animal('动物');
+animal.getInfo();</pre>
+  </section>
+  <footer>
+    心叶 &copy;2007-2019 走一步，再走一步
+  </footer>
+</body>
+
+</html>
