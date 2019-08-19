@@ -9,6 +9,12 @@
 ### 邮箱:yelloxing@gmail.com
 ****
 
+> 你可以[在线访问](https://yelloxing.github.io/notebook/)或[下载](https://github.com/yelloxing/notebook/archive/master.zip)后本地访问,当然，我们推荐你通过clone方式获取，因为这样你可以获得最新更新，也方便你为小笔记贡献文档:
+
+```
+git clone https://github.com/yelloxing/notebook
+```
+
 ### 免责声明
 ------
 *   笔记中部分数据（如图片等）来自互联网，如果侵犯到对应权益者请联系我们，方便我们及时删除！
