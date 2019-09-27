@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset='utf-8'>
+  <title>离线小助手</title>
+  <link rel="icon" href="../../favicon.ico" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,maximum-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="email=no" />
+  <meta name="Keywords" content="离线小助手" />
+  <meta name="description" content="离线小助手" />
+  <meta name="author" content="心叶" />
+  <link rel="stylesheet" href="../../easycss-1.0.0.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../../prettify.css">
+  <script src="../../prettify.js"></script>
+</head>
+
+<body onload="prettyPrint()">
+  <header>
+    <ul>
+      <li onclick='window.location.href="https://github.com/yelloxing/notebook"'>离线小助手</li>
+      <li onclick='window.location.href="../index.html"' class='active'>小博客</li>
+      <li onclick='window.location.href="../../index.html"'>查询文档</li>
+      <li onclick='window.location.href="../../tools/mspainter/index.html"'>小画板</li>
+      <!-- 预留一 -->
+      <!-- 预留二 -->
+      <!-- 预留三 -->
+      <!-- 预留四 -->
+      <li>
+        <input type="text" placeholder="search...">
+      </li>
+    </ul>
+  </header>
+  <em class='position'>当前位置：小博客 / CSS理解相关 / z-index、层叠上下文和层叠顺序整理</em>
+  <section>
+    <div class="title">基本概念</div>
+    <div class="block">
+      层叠上下文是一个概念上的东西，学过编译原理的人应该对这里的上下文很清楚，而层叠不过就是一个词罢了，解释一下就是，根据层叠规则决定位置的一个环境。还需要注意的一点是，具有层叠上下文的元素比普通元素要更靠近眼睛。
+    </div>
+    <div class="block">
+      层叠水平也是一个概念上的东西，用大白话说就是：在一个层叠上下文的环境下，里面的元素在z轴上的排列顺序的规则，而层叠顺序就是这里说的具体规则，是实践的东西。
+    </div>
+  </section>
+  <section>
+    <div class="title">层叠顺序</div>
+    <div class="block">
+      需要记住的是，内部的层叠上下文及其子元素均受制于外部的层叠上下文，下面是层叠顺序（需要在同一个层叠上下文下进行思考，否则应该看父亲，以此类推），从远到近。
+    </div>
+    <div class="block">
+      1.层叠上下文background/border；
+    </div>
+    <div class="block">
+      2.负z-index；
+    </div>
+    <div class="block">
+      3.block块状盒子模型；
+    </div>
+    <div class="block">
+      4.float浮动盒子；
+    </div>
+    <div class="block">
+      5.z-index为auto或看成0的不依赖z-index的上下文；
+    </div>
+    <div class="block">
+      6.z-index为auto或看成0；
+    </div>
+    <div class="block">
+      7.正z-index。
+    </div>
+  </section>
+  <section>
+    <div class="title">层叠上下文产生条件？</div>
+    <div class="block">
+      第一种 根层叠上下文（指的是页面根元素，也就是 元素）。
+    </div>
+    <div class="block">
+      第二种 定位元素与传统层叠上下文（使用了position:absolute、position:fixed或position:relative的定位元素，且z-index的值是数字会产生叠上下文）。
+    </div>
+    <div class="block">
+      第三种 CSS3与新时代的层叠上下文，具体有如下几种：
+    </div>
+    <div class="block">
+      1.一个被设置了display:flex的元素包含的元素对其设置z-index为数值时其会产生层叠上下文；
+    </div>
+    <div class="block">
+      2.设置了opacity不为1的元素会产生层叠上下文；
+    </div>
+    <div class="block">
+      3.设置了transform不为none的元素会产生层叠上下文；
+    </div>
+    <div class="block">
+      4.设置了mix-blend-mode不为normal的元素会产生层叠上下文；
+    </div>
+    <div class="block">
+      5.设置了filter不为none的元素会产生层叠上下文；
+    </div>
+    <div class="block">
+      6.设置了isolation:isolate的元素会产生层叠上下文；
+    </div>
+    <div class="block">
+      7.设置了-webkit-overflow-scrolling的元素会产生层叠上下文（移动端）；
+    </div>
+    <div class="block">
+      8.设置了will-change的元素会产生层叠上下文。
+    </div>
+  </section>
+  <footer>
+    心叶 &copy;2007-2019 走一步，再走一步
+  </footer>
+</body>
+
+</html>
