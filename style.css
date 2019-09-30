@@ -1,3 +1,12 @@
+html {
+    /* 统一rem计算基数 */
+    font-size: 100px;
+}
+
+body {
+    /* 恢复正常字体大小 */
+    font-size: .16rem;
+}
 body {
     background: #f6f6f6;
     padding-top: .6rem;
