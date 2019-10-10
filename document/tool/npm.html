@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset='utf-8'>
+  <title>离线小助手</title>
+  <link rel="icon" href="../../favicon.ico" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,maximum-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="email=no" />
+  <meta name="Keywords" content="离线小助手" />
+  <meta name="description" content="离线小助手" />
+  <meta name="author" content="心叶" />
+  <link rel="apple-touch-icon" sizes="52x52" href="52icon.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="72icon.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="120icon.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="144icon.png" />
+  <link rel="stylesheet" href="../../normalize.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../../prettify.css">
+  <script src="../../prettify.js"></script>
+</head>
+
+<body onload="prettyPrint()">
+  <header>
+    <ul>
+      <li onclick='window.location.href="https://github.com/yelloxing/notebook"'>离线小助手</li>
+      <li onclick='window.location.href="../../blog/index.html"'>小博客</li>
+      <li onclick='window.location.href="../../index.html"' class='active'>查询文档</li>
+      <!-- 预留零 -->
+      <!-- 预留一 -->
+      <!-- 预留二 -->
+      <!-- 预留三 -->
+      <!-- 预留四 -->
+      <li>
+        <input type="text" placeholder="search...">
+      </li>
+    </ul>
+  </header>
+  <em class='position'>当前位置：查询文档 / 工具类手册 / npm命令</em>
+  <section>
+    <div class="title">发布和撤销包</div>
+    <div class="block">
+      发布一个普通的包很简单，首先我们需要登录：
+    </div>
+    <pre class="code prettyprint">npm login</pre>
+    <div class="block">
+      然后根据提示输入用户名、密码和邮箱即可。为了验证登录是否成功，执行下面命令：
+    </div>
+    <pre class="code prettyprint">npm who am i</pre>
+    <div class="block">
+      如果发现正常打印出来用户名就基本说明登录没有问题（登录只需要一次，不是每次发布的时候都需要重新登录）。
+    </div>
+    <div class="block">
+      接着，我们需要提前配置好package.json文件，然后执行下面命令即可发布：
+    </div>
+    <pre class="code prettyprint">npm publish</pre>
+    <div class="block">
+      然而，发布带@的包（就是包名类似：@yelloxing/core.js的包）需要添加一些额外的参数:
+    </div>
+    <pre class="code prettyprint">npm publish --access public</pre>
+    <div class="block">
+      如果刚刚发布的包需要撤销（发布一定时间内可以成功，超过一定时间以后，无法撤销）：
+    </div>
+    <pre class="code prettyprint">npm unpublish yourName@0.0.0</pre>
+    <div class="block">
+      上面的命令会撤销yourName包发布的0.0.0版本的文件。
+    </div>
+  </section>
+  <section>
+    <div class="title">工具类配置</div>
+    <div class="block">
+      普通的包我们都是通过在package.json中配置main、module或browser来指定入口js后发布的，而如果你希望安装后可以通过命令行调用该工具，就需要额外添加一个配置项：bin。
+    </div>
+    <div class="block">
+      比如发布的是一个工具demo-cli（在bin目录下新建一个脚本文件cli），你需要添加下列配置：
+    </div>
+    <pre class="code prettyprint">{
+  "bin": {"demo-cli": "bin/cli"}
+}</pre>
+    <div class="block">
+      发布后，如果是 -g 全局安装，直接在命令行中通过demo-cli即可执行该脚本。
+    </div>
+  </section>
+  <footer>
+    心叶 &copy;2007-2019 走一步，再走一步
+  </footer>
+</body>
+
+</html>
