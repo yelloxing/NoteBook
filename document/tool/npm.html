@@ -83,6 +83,17 @@
       发布后，如果是 -g 全局安装，直接在命令行中通过demo-cli即可执行该脚本。
     </div>
   </section>
+  <section>
+    <div class="title">修改和查看镜像</div>
+    <div class="block">
+      有时候我们的npm镜像由于一些原因可能会被修改，可以通过下面命令查看：
+    </div>
+    <pre class="code prettyprint">npm get registry</pre>
+    <div class="block">
+      如果打印的地址不是官方镜像，可以通过下面命令恢复：
+    </div>
+    <pre class="code prettyprint">npm config set registry https://registry.npmjs.org/</pre>
+  </section>
   <footer>
     心叶 &copy;2007-2019 走一步，再走一步
   </footer>
