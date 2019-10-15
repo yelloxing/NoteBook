@@ -7,10 +7,11 @@ body {
     /* 恢复正常字体大小 */
     font-size: .16rem;
 }
+
 body {
-    background: #f6f6f6;
+    background: #e4e0e0;
     padding-top: .6rem;
-    font-family: -apple-system,"Helvetica Neue",Helvetica,Arial,"PingFang SC","Hiragino Sans GB","WenQuanYi Micro Hei","Microsoft Yahei",sans-serif;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft Yahei", sans-serif;
 }
 
 body>header {
@@ -175,10 +176,11 @@ body>section {
 }
 
 body>section>.little-title {
-    color:red;
+    color: red;
     line-height: 2em;
     font-weight: 800;
 }
+
 body>section>.title {
     font-size: .22rem;
     line-height: 2em;
@@ -191,7 +193,7 @@ body>section>.name {
 }
 
 body>section>.code {
-    background-color: #f6f6f6;
+    background-color: #e4e0e0;
     margin: .1rem 0;
     padding: .1rem;
     color: #435159;

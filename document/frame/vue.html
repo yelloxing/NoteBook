@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset='utf-8'>
+    <title>离线小助手</title>
+    <link rel="icon" href="../../favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,maximum-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="Keywords" content="离线小助手" />
+    <meta name="description" content="离线小助手" />
+    <meta name="author" content="心叶" />
+    <link rel="stylesheet" href="../../normalize.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../prettify.css">
+    <script src="../../prettify.js"></script>
+</head>
+
+<body onload="prettyPrint()">
+    <header>
+        <ul>
+            <li onclick='window.location.href="https://github.com/yelloxing/notebook"'>离线小助手</li>
+            <li onclick='window.location.href="../../blog/index.html"'>小博客</li>
+            <li onclick='window.location.href="../../index.html"' class='active'>查询文档</li>
+            <!-- 预留零 -->
+            <!-- 预留一 -->
+            <!-- 预留二 -->
+            <!-- 预留三 -->
+            <!-- 预留四 -->
+            <li>
+                <input type="text" placeholder="search...">
+            </li>
+        </ul>
+    </header>
+    <em class='position'>当前位置：查询文档 / 前端框架 / Vue.js使用经验和有益的知识总结</em>
+    <section>
+        <div class="title">动态组件</div>
+        <div class="block">
+            有时候我们可能需要动态确定一个地方使用哪个组件，比如根据返回的数据确定当前是下拉还是日历组件，那就可以借助这个组件：
+        </div>
+        <pre class="code prettyprint">&lt;component v-bind:is="yourComp"&gt;&lt;/component&gt;</pre>
+        <div class="block">
+            yourComp是什么？就是一个vue组件。我们来说明一种特殊情况。
+        </div>
+        <pre class="code prettyprint">export default {
+    template:'字符串模板'
+}</pre>
+        <div class="block">
+            上面的内容是写在我们自定义的组件yourComp.js中的，如何导入使用：
+        </div>
+        <pre class="code prettyprint">import yourComp from "./yourComp";</pre>
+        <div class="block">
+            像上面那样导入即可被一开始演示的component使用了。可是这样好像也没有什么特别的？
+        </div>
+        <div class="block">
+            那我们把yourComp.js文件稍微改造一下：
+        </div>
+        <pre class="code prettyprint">export default function (templateData) {
+    return {
+        template: '根据templateData拼接的字符串模板'
+    };
+};
+</pre>
+        <div class="block">
+            同样，我们导入后也需要多添加一步进行处理：
+        </div>
+        <pre class="code prettyprint">import yourCompFactory from "./yourComp";
+// 第二句可以在任意一个地方执行，包括请求回调中
+yourComp=yourCompFactory(templateData);</pre>
+        <div class="block">
+            看出来了吗？改造以后，我们就可以根据实际需要，动态调整生成的组件。
+        </div>
+    </section>
+    <footer>
+        心叶 &copy;2007-2019 走一步，再走一步
+    </footer>
+</body>
+
+</html>
