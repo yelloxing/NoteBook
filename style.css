@@ -71,6 +71,7 @@ body>em.position {
     font-size: .14rem;
     font-style: normal;
     color: #2196F3;
+    padding:0 .2rem;
 }
 
 body .btn>.download {
@@ -164,6 +165,7 @@ body>footer {
     line-height: 1rem;
     font-size: .14rem;
     color: #43515a;
+    padding:0 .2rem;
 }
 
 body>section {
@@ -173,6 +175,10 @@ body>section {
     background-color: #fff;
     padding: 15px;
     border-radius: 4px;
+    font-size: .14rem;
+    font-weight: 600;
+    font-family: cursive;
+    letter-spacing: .1em;
 }
 
 body>section>.little-title {

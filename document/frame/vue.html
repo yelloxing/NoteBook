@@ -73,6 +73,13 @@ yourComp=yourCompFactory(templateData);</pre>
             看出来了吗？改造以后，我们就可以根据实际需要，动态调整生成的组件。
         </div>
     </section>
+    <section>
+        <div class="title">视图和model数据不同步问题</div>
+        <div class="block">
+            有时候在指令里面通过jquery修改了input的数据，不过Vue并不会知道，这时候，你可以通过触发输入框input事件，让Vue发现数据改变了：
+        </div>
+        <pre class="code prettyprint">$("input").trigger("input");</pre>
+    </section>
     <footer>
         心叶 &copy;2007-2019 走一步，再走一步
     </footer>
