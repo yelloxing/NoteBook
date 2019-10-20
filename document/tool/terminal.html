@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset='utf-8'>
+  <title>离线小助手</title>
+  <link rel="icon" href="../../favicon.ico" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,maximum-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="email=no" />
+  <meta name="Keywords" content="离线小助手" />
+  <meta name="description" content="离线小助手" />
+  <meta name="author" content="心叶" />
+  <link rel="apple-touch-icon" sizes="52x52" href="52icon.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="72icon.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="120icon.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="144icon.png" />
+  <link rel="stylesheet" href="../../normalize.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../../prettify.css">
+  <script src="../../prettify.js"></script>
+</head>
+
+<body onload="prettyPrint()">
+  <header>
+    <ul>
+      <li onclick='window.location.href="https://github.com/yelloxing/notebook"'>离线小助手</li>
+      <li onclick='window.location.href="../../blog/index.html"'>小博客</li>
+      <li onclick='window.location.href="../../index.html"' class='active'>查询文档</li>
+      <li onclick='window.location.href="https://github.com/yelloxing"'>开源项目</li>
+      <!-- 预留一 -->
+      <!-- 预留二 -->
+      <!-- 预留三 -->
+      <!-- 预留四 -->
+      <li>
+        <input type="text" placeholder="search...">
+      </li>
+    </ul>
+  </header>
+  <em class='position'>当前位置：查询文档 / 工具类手册 / Terminal常用终端命令</em>
+  <section>
+    <div class="title">vi&amp;vim</div>
+    <div class="block">
+      首先，我们需要知道vi（或vim，下同）有三种模式：编辑模式、底行模式和命令行模式。
+    </div>
+    <div class="little-title">模式间切换</div>
+    <div class="block">
+      在任何情况下，按ESC都可以切换到命令行模式，而在命令行模式，输入冒号:会进入底行模式，输入字母i会进入编辑模式。
+    </div>
+    <div class="block">
+      编辑模式下就是普通的文本输入，没有什么特殊的，下面主要说明另外二种模式下的一些命令。
+    </div>
+    <div class="little-title">底行模式</div>
+    <div class="block">
+      常用的命令就几种，分别是:q（退出）、:q!（强制退出）、:wq（保存后退出）、和:w（保存）。
+    </div>
+    <div class="little-title">命令行模式</div>
+    <div class="block">
+      该模式下的命令可以帮助你快速开发，不过不是必须的，下面列出几个常用的：
+    </div>
+    <div class="block">
+      1.dd:删除一行
+    </div>
+    <div class="block">
+      2.u:撤消修改或删除操作
+    </div>
+    <div class="block">
+      3.yy:复制光标所在行到缓冲区
+    </div>
+    <div class="block">
+      4.p:将缓冲区内的字符贴到光标所在位置
+    </div>
+  </section>
+  <footer>
+    心叶 &copy;2007-2019 走一步，再走一步
+  </footer>
+</body>
+
+</html>
