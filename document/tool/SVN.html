@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset='utf-8'>
+    <title>离线小助手</title>
+    <link rel="icon" href="../../favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,maximum-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="Keywords" content="离线小助手" />
+    <meta name="description" content="离线小助手" />
+    <meta name="author" content="心叶" />
+    <link rel="apple-touch-icon" sizes="52x52" href="52icon.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="72icon.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="120icon.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="144icon.png" />
+    <link rel="stylesheet" href="../../normalize.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../prettify.css">
+    <script src="../../prettify.js"></script>
+</head>
+
+<body onload="prettyPrint()">
+    <header>
+        <ul>
+            <li onclick='window.location.href="https://github.com/yelloxing/notebook"'>离线小助手</li>
+            <li onclick='window.location.href="../../blog/index.html"'>小博客</li>
+            <li onclick='window.location.href="../../index.html"' class='active'>查询文档</li>
+            <li onclick='window.location.href="https://github.com/yelloxing"'>开源项目</li>
+            <!-- 预留一 -->
+            <!-- 预留二 -->
+            <!-- 预留三 -->
+            <!-- 预留四 -->
+            <li>
+                <input type="text" placeholder="search...">
+            </li>
+        </ul>
+    </header>
+    <em class='position'>当前位置：查询文档 / 工具类手册 / SVN版本控制</em>
+    <section>
+        <div class="title">初始化</div>
+        <div class="block">
+            把uri指定的仓库代码检出到本地来：
+        </div>
+        <pre class="code prettyprint">svn checkout url</pre>
+        <div class="block">
+            更新代码：
+        </div>
+        <pre class="code prettyprint">svn up</pre>
+        <div class="block">
+            清理：
+        </div>
+        <pre class="code prettyprint">svn cleanup</pre>
+    </section>
+    <section>
+        <div class="title">状态查询</div>
+        <div class="block">
+            查看当前工作区的状态：
+        </div>
+        <pre class="code prettyprint">svn status</pre>
+        <div class="block">
+            查看svn信息：
+        </div>
+        <pre class="code prettyprint">svn info</pre>
+    </section>
+    <section>
+        <div class="title">提交</div>
+        <div class="block">
+            添加新文件到版本库：
+        </div>
+        <pre class="code prettyprint">svn add filename</pre>
+        <div class="block">
+            递归添加当前目录下的所有新文件：
+        </div>
+        <pre class="code prettyprint">svn add . --no-ignore --force</pre>
+        <div class="block">
+            提交代码（只有新文件需要add,修改文件可以直接提交）：
+        </div>
+        <pre class="code prettyprint">svn commit -m "提交描述"</pre>
+    </section>
+    <footer>
+        心叶 &copy;2007-2019 走一步，再走一步
+    </footer>
+</body>
+
+</html>
