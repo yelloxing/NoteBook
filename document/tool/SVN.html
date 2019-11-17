@@ -80,6 +80,13 @@
         </div>
         <pre class="code prettyprint">svn commit -m "提交描述"</pre>
     </section>
+    <section>
+        <div class="title">忽略或删除</div>
+        <div class="block">
+            已经通过add添加到仓库的文件，如果想删除，需要执行下面命令回退到unversioned状态：
+        </div>
+        <pre class="code prettyprint">svn revert file --depth infinity</pre>
+    </section>
     <footer>
         心叶 &copy;2007-2019 走一步，再走一步
     </footer>
