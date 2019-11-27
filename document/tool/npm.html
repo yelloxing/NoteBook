@@ -81,7 +81,7 @@
     <div class="block">
       对应的，安装的时候也可以指明特殊类型：
     </div>
-    <pre class="code prettyprint">npm install pkgName@beta</pre>
+    <pre class="code prettyprint">npm install &lt;pkg&gt@beta</pre>
   </section>
   <section>
     <div class="title">工具类配置</div>
@@ -108,6 +108,13 @@
       如果打印的地址不是官方镜像，可以通过下面命令恢复：
     </div>
     <pre class="code prettyprint">npm config set registry https://registry.npmjs.org/</pre>
+  </section>
+  <section>
+    <div class="title">包标记</div>
+    <div class="block">
+      如果已经发布的包过时或别的原因想通知使用者弃用：
+    </div>
+    <pre class="code prettyprint">npm deprecate &lt;pkg&gt[@&lt;version&gt;] &lt;message&gt;</pre>
   </section>
   <footer>
     心叶 &copy;2007-2019 走一步，再走一步
