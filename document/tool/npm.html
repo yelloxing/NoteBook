@@ -61,16 +61,27 @@
     </div>
     <pre class="code prettyprint">npm publish</pre>
     <div class="block">
-      然而，发布带@的包（就是包名类似：@yelloxing/core.js的包）需要添加一些额外的参数:
-    </div>
-    <pre class="code prettyprint">npm publish --access public</pre>
-    <div class="block">
       如果刚刚发布的包需要撤销（发布一定时间内可以成功，超过一定时间以后，无法撤销）：
     </div>
     <pre class="code prettyprint">npm unpublish yourName@0.0.0</pre>
     <div class="block">
       上面的命令会撤销yourName包发布的0.0.0版本的文件。
     </div>
+  </section>
+  <section>
+    <div class="title">特殊发布</div>
+    <div class="block">
+      发布带@的包（就是包名类似：@yelloxing/core.js的包）需要添加一些额外的参数:
+    </div>
+    <pre class="code prettyprint">npm publish --access public</pre>
+    <div class="block">
+      默认情况下，我们发布的包属于latest，如果想发布固定类型的（比如beta或alpha，next等），需要特别标记一下，比如beta:
+    </div>
+    <pre class="code prettyprint">npm publish --tag=beta</pre>
+    <div class="block">
+      对应的，安装的时候也可以指明特殊类型：
+    </div>
+    <pre class="code prettyprint">npm install pkgName@beta</pre>
   </section>
   <section>
     <div class="title">工具类配置</div>
