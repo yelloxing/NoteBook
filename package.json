@@ -1,6 +1,9 @@
 {
   "name": "notebook",
   "description": "A small note for easy access.",
+  "scripts": {
+    "server":"cuf --server 20000"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yelloxing/notebook.git"
@@ -11,5 +14,8 @@
   "bugs": {
     "url": "https://github.com/yelloxing/notebook/issues"
   },
-  "homepage": "https://github.com/yelloxing/notebook#readme"
+  "homepage": "https://github.com/yelloxing/notebook#readme",
+  "devDependencies": {
+    "cuf": "^1.2.0"
+  }
 }
