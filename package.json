@@ -2,7 +2,7 @@
   "name": "notebook",
   "description": "A small note for easy access.",
   "scripts": {
-    "server":"cuf --server 20000"
+    "server": "cuf --server 20000"
   },
   "repository": {
     "type": "git",
