@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset='utf-8'>
+    <title>小笔记</title>
+    <link rel="icon" href="../favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,maximum-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="Keywords" content="小笔记" />
+    <meta name="description" content="小笔记" />
+    <meta name="author" content="心叶" />
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../prettify.css">
+    <script src="../prettify.js"></script>
+</head>
+
+<body onload="prettyPrint()">
+    <header>
+        <ul>
+            <li onclick='window.location.href="https://github.com/yelloxing/notebook"'>小笔记</li>
+            <li onclick='window.location.href="../blog/index.html"'>小博客</li>
+            <li onclick='window.location.href="../index.html"'>查询文档</li>
+            <li class='active' onclick='window.location.href="./index.html"'>问题登记</li>
+            <li onclick='window.location.href="http://yelloxing.gitee.io/homepage/"'>个人中心</li>
+            <li>
+                <input type="text" placeholder="search...">
+            </li>
+        </ul>
+    </header>
+    <em class='position'>当前位置：问题登记 / IE浏览器中下拉相关问题</em>
+    <section>
+        <div class="block">
+            开始遇到的问题是：一个Angularjs环境，使用ng-options生成下拉显示出来的下拉是空白，点击条目选择回显也是空白。
+        </div>
+        <pre class='code prettyprint'>&lt;select ng-options="item for item in items"&gt;&lt;/select&gt;</pre>
+        <div class="block">
+            重要的是，只有在特殊的几台电脑的IE上有问题，在该电脑的其他浏览器上没有问题。经过对比我们发现，该指令生成的option不对：
+        </div>
+        <pre class='code prettyprint'>&lt;option&gt;&lt;/option&gt;</pre>
+        <div class="block">
+            然后我们决定使用ng-repeat代替：
+        </div>
+        <pre class='code prettyprint'>&lt;option ng-repeat='item in items'&gt;
+	{{item}}
+&lt;/option&gt;</pre>
+        <div class="block">
+            同样的，在其它浏览器或者电脑上都可以，只在出问题的电脑上不行。不过，此时生成的option不一样了，举例子：
+        </div>
+        <pre class='code prettyprint'>&lt;option&gt;
+    条目一
+&lt;/option&gt;</pre>
+        <div class="block">
+            option里面有了内容，从一般理解，如果现在不可以，应该是浏览器对option标签的问题了，因此我们写了一个最简单的原生下拉进行测试：
+        </div>
+        <pre class='code prettyprint'>&lt;select&gt;
+    &lt;option&gt;条目一&lt;/option&gt;
+    &lt;option&gt;条目二&lt;/option&gt;
+    ...
+&lt;/select&gt;</pre>
+        <div class="block">
+            奇怪的事情发生了，这个下拉是可以的，到底是哪里出了问题？
+        </div>
+        <div class="block">
+            和最后一个不行的例子进行对比以后，我们发现就一个地方不一样，因此，我们把那个简单的原生例子稍微改造一下：
+        </div>
+        <pre class='code prettyprint'>&lt;select&gt;
+    &lt;option&gt;
+        条目一
+    &lt;/option&gt;
+    &lt;option&gt;条目二&lt;/option&gt;
+    ...
+&lt;/select&gt;</pre>
+        <div class="block">
+            再次运行，我们发现，只有第一个条目显示空白，点击回显也是空白。因此，我们现在怀疑是浏览器的option对回车处理的问题，然后，我们对之前的代码进行了修改：
+        </div>
+        <pre class='code prettyprint'>&lt;option ng-repeat='item in items'&gt;{{item}}&lt;/option&gt;</pre>
+        <div class="block">
+            是的，可以了。
+        </div>
+    </section>
+    <footer>
+        心叶 &copy;2007-2020 走一步，再走一步
+    </footer>
+</body>
+
+</html>

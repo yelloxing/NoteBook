@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset='utf-8'>
+  <title>小笔记</title>
+  <link rel="icon" href="../favicon.ico" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,maximum-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="email=no" />
+  <meta name="Keywords" content="小笔记" />
+  <meta name="description" content="小笔记" />
+  <meta name="author" content="心叶" />
+  <link rel="stylesheet" href="../normalize.css">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body>header>ul>li {
+      position: relative;
+    }
+
+
+    body>footer {
+      width: 10rem;
+      margin: auto;
+      line-height: 1rem;
+      font-size: .14rem;
+      color: #43515a;
+    }
+
+    body>div {
+      width: 10rem;
+      margin: auto;
+      background-color: #fff;
+      padding: 15px;
+      margin-top: 10px;
+      border-radius: 4px;
+    }
+
+    body>div>span {
+      padding-bottom: 9px;
+      border-bottom: 1px solid #eee;
+      display: block;
+      font-weight: 800;
+    }
+
+    body>div>ul {
+      margin-left: 0;
+    }
+
+    body>div>ul>li {
+      position: relative;
+      --right: .1rem;
+      --font-size: .14rem;
+      --line-height: .4rem;
+    }
+
+    body>div>ul>li>a>i {
+      background-color: rgb(231, 13, 122);
+      color: white;
+      margin-left: .1rem;
+      padding: .04rem;
+      border-radius: .04rem;
+    }
+
+    body>div>ul>li>a {
+      display: block;
+      line-height: var(--line-height);
+      font-size: var(--font-size);
+      color: #333333;
+      padding: 0 var(--right);
+      border-bottom: 1px solid #eee;
+    }
+
+    body>div>ul>li>em {
+      position: absolute;
+      right: var(--right);
+      top: 0;
+      line-height: var(--line-height);
+      font-size: var(--font-size);
+      color: #999999;
+      font-style: normal;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <ul>
+      <li onclick='window.location.href="https://github.com/yelloxing/notebook"'>小笔记</li>
+      <li onclick='window.location.href="../blog/index.html"'>小博客</li>
+      <li onclick='window.location.href="../index.html"'>查询文档</li>
+      <li class='active'>问题登记</li>
+      <li onclick='window.location.href="http://yelloxing.gitee.io/homepage/"'>个人中心</li>
+      <li>
+        <input type="text" placeholder="search...">
+      </li>
+    </ul>
+  </header>
+  <div>
+    <ul>
+      <li>
+        <a href="./IE-option.html">
+          IE浏览器中下拉相关问题
+          <i>Windows</i><i>IE</i><i>Angularjs</i>
+        </a>
+        <em>2020年09月10日</em>
+      </li>
+    </ul>
+  </div>
+  <footer>
+    心叶 &copy;2007-2020 走一步，再走一步
+  </footer>
+</body>
+
+</html>
